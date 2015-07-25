@@ -157,7 +157,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>210</y>
+     <y>180</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -173,7 +173,7 @@
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>210</y>
+     <y>180</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -185,23 +185,7 @@
     <string>Cancelar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="criarTextoBtn">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>160</y>
-     <width>221</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>Criar texto </string>
-   </property>
-   <property name="text">
-    <string>Adicionar um texto ao conteúdo</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="escolheCatComboBox">
+  <widget class="QComboBox" name="escolheComboBox">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -234,7 +218,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>270</y>
+     <y>250</y>
      <width>361</width>
      <height>16</height>
     </rect>
@@ -247,7 +231,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>240</y>
+     <y>210</y>
      <width>131</width>
      <height>31</height>
     </rect>
