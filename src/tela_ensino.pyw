@@ -1,4 +1,15 @@
 # -*- coding: cp1252 -*-
+
+'''
+    Autor: "Fagner Barros"
+    Versão: "2.0.0"
+    Email: "fagnerluizbarros@gmail.com
+    Data de Criação: 12/01/2015
+    Data da última modificação: 23/03/2015
+    Versão Python: 2.7
+    Versão do PyQt: 4.8
+'''
+
 from PyQt4 import QtGui, QtCore, uic
 import apres_ops
 import conteudo
