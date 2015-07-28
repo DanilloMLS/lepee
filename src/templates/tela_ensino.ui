@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>768</height>
+    <width>1016</width>
+    <height>758</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,24 +36,51 @@
    <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout"/>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QWidget" name="principalWidget" native="true">
+      <widget class="QWidget" name="menuWidget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>181</width>
+         <height>570</height>
+        </rect>
+       </property>
+       <zorder>sepAreasLine</zorder>
+      </widget>
+      <widget class="QWidget" name="apresContWidget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>0</y>
+         <width>811</width>
+         <height>721</height>
+        </rect>
+       </property>
+       <widget class="Line" name="sepAreasLine">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>5</width>
+          <height>721</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionCriarCat">
-   <property name="text">
-    <string>Categoria</string>
-   </property>
-  </action>
-  <action name="actionCriarCont">
-   <property name="text">
-    <string>Conteúdo</string>
-   </property>
-  </action>
-  <action name="actionSair">
-   <property name="text">
-    <string>Sair</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>
