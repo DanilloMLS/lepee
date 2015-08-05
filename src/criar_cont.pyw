@@ -20,7 +20,8 @@ class CriarConteudo(QtGui.QDialog):
         
         self.contProgress.hide()
         self.criandoLabel.hide()
-
+        self.errorLabel.hide()
+        
     def __carregar(self, titulo, diretorio, filtro):
         return QtGui.QFileDialog.getOpenFileName(self, titulo, diretorio, filtro)
 
@@ -44,7 +45,7 @@ class CriarConteudo(QtGui.QDialog):
 
     def atualiza_cam_busca(self, cam):
         i = cam.find('/')
-        
+        j = i
         while i != -1 :
             j = i
             i = cam.find('/', i+1)
@@ -73,7 +74,7 @@ class CriarConteudo(QtGui.QDialog):
             
             cam_cont_selec = conteudo.getCam_conteudo(titulo)
             
-            if not conteudo.cont_existe(cam_cont_selec, titulo_subcont):
+            if not conteudo.cont_existe(cam_cont_selec, titulo_subcont) and titulo_subcont != '' and cam_img != '' and cam_video != '':
                 self.contProgress.setValue(15)
                 cam_cont_selec = QtCore.QString(cam_cont_selec).toUtf8()
                 cam_cont = cam_cont_selec + titulo_subcont
@@ -92,9 +93,22 @@ class CriarConteudo(QtGui.QDialog):
 
                 self.copia_arq(cam_img, cam_cont+'\\img\\')
                 self.contProgress.setValue(100)
-            
-        except IOError as io:
-            raise io
+                
+            elif titulo_subcont == '' or cam_img == '' or cam_video == '':
+                self.errorLabel.show();
+                self.errorLabel.setText('Título, imagem e vídeo são obrigatórios')
+
+        except IOError:
+            self.errorLabel.show()
+            self.errorLabel.setText('Um dos arquivos não foi encontrado')
+
+        except WindowsError:
+            self.errorLabel.show()
+            self.errorLabel.setText('O título deve ser diferente dos outros, e não deve conter \:/?*"|')
+
+        except Exception:
+            self.errorLabel.show()
+            self.errorLabel.setText('Erro Desconhecido')
 
         finally:
             self.contProgress.setValue(0)

@@ -258,6 +258,19 @@
     <string>Criando conteúdo:</string>
    </property>
   </widget>
+  <widget class="QLabel" name="errorLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>270</y>
+     <width>351</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
