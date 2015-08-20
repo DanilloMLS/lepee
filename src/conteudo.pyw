@@ -4,7 +4,7 @@
     Versão: "2.0.0"
     Email: "fagnerluizbarros@gmail.com
     Data de Criação: 12/01/2015
-    Data da última modificação: 13/03/2015
+    Data da última modificação: 20/08/2015
     Versão Python: 2.7
 '''
 
@@ -16,7 +16,7 @@ class Conteudo(object):
         A classe Conteudo representa a modelagem de um conteúdo de informação para uma aula.
         Este possui video, imagem e subconteúdos.
     '''
-    def __init__(self, titulo, imagem, video, cam_cont='conteudos\\conts\\'):
+    def __init__(self, titulo, imagem, video, cam_cont):
         self.__titulo = titulo
         self.__cam_img = imagem
         self.__cam_video = video
@@ -58,6 +58,9 @@ class Conteudo(object):
         return getLista_conts(self.getCam_list_conts())
 
 #funções do módulo
+def getCont_intr():
+    return Conteudo("conteudos","conteudos\\img\\intro.jpg","conteudos\\video\\intro.avi","conteudos\\conts\\")
+
 def getLista_conts(cam_cont="conteudos\\"):
     '''
         getList_conteudos(cam_cont) -> list_of_conteudos

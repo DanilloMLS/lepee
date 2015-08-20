@@ -5,7 +5,7 @@
     Versão: "2.0.0"
     Email: "fagnerluizbarros@gmail.com
     Data de Criação: 12/01/2015
-    Data da última modificação: 23/03/2015
+    Data da última modificação: 20/08/2015
     Versão Python: 2.7
     Versão do PyQt: 4.8
 '''
@@ -31,9 +31,12 @@ class TelaEnsino(QtGui.QMainWindow):
 
         #Cria as áres de menu e apresentação de conteúdo
         self.__apres_ops = apres_ops.ApresOps(self.menuWidget)
-        self.__apres_cont= apres_cont.ApresCont(self.apresContWidget)        
+        self.__apres_cont= apres_cont.ApresCont(self.apresContWidget)
+        self.__conteudoIntr = conteudo.getCont_intr()
+        self.getApres_cont().apresent(self.__conteudoIntr)
+        
         #Carrega os conteúdos no menu
-        self.getApres_ops().carregar_conts(conteudo.getLista_conts())
+        self.getApres_ops().carregar_conts(self.__conteudoIntr.getLista_conts())
 
         #Apresenta um novo conteúdo selecionado
         self.connect(self.getApres_ops().getMenu(),
@@ -48,7 +51,7 @@ class TelaEnsino(QtGui.QMainWindow):
         self.setMinimumWidth(self.width())
 
     def __voltar(self):
-        self.getApres_ops().carregar_conts(conteudo.getLista_conts())
+        self.getApres_ops().carregar_conts(self.__conteudoIntr.getLista_conts())
         
     def muda_ap_cont(self):
         '''
