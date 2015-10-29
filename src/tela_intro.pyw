@@ -12,6 +12,7 @@
 
 from PyQt4 import QtGui, QtCore, uic
 import animated_button
+import tela_ensino
 
 class TelaIntro(QtGui.QMainWindow):
     def __init__(self,parent=None):
@@ -19,22 +20,56 @@ class TelaIntro(QtGui.QMainWindow):
         uic.loadUi("templates\\intro.ui",self)
 
         self.__alunoButton = animated_button.AnimatedButton(self.alunoWidget,'icons\\voltar.gif')
+        self.__alunoButton.setGeometry(self.__alunoButton.x(),self.__alunoButton.y(), 251,200)
         self.__alunoButton.show()
-
-        self.__profButton = animated_button.AnimatedButton(self.profWidget,'icons\\voltar.gif')
-        self.__profButton.show()
         
-        #self.alunoButton.setText('Meu Texto')
-        #self.profButton.setText('123456')
-        #profButton = animated_button.AnimatedButton(self,'icons\\voltar.gif')    
-        #alunoButton = animated_button.AnimatedButton(self,'icons\\voltar.gif')
-        #self.__alunoButton.show()
+        self.__profButton = animated_button.AnimatedButton(self.profWidget,'icons\\voltar.gif')
+        self.__profButton.setGeometry(self.__profButton.x(),self.__profButton.y(), 251,200)
+        self.__profButton.show()
 
+        self.__introGif = animated_button.AnimatedButton(self.introGif,'icons\\voltar.gif')
+        self.__introGif.setGeometry(self.__introGif.x(),self.__introGif.y(), 211,121)
+        self.__introGif.show()
+
+        
+        img = QtGui.QPixmap('icons\\imagem.jpg')
+        label = QtGui.QLabel()
+        alt = self.scrollAreaAluno.widget().height()
+        larg = self.scrollAreaAluno.widget().width()
+        img = img.scaled(QtCore.QSize(larg, alt))
+        label.setPixmap(img)
+        self.scrollAreaAluno.setWidget(label)
+
+        img = QtGui.QPixmap('icons\\imagem.jpg')
+        label = QtGui.QLabel()
+        alt = self.scrollAreaProf.widget().height()
+        larg = self.scrollAreaProf.widget().width()
+        img = img.scaled(QtCore.QSize(larg, alt))
+        label.setPixmap(img)
+        self.scrollAreaProf.setWidget(label)
+        
         self.setMaximumHeight(self.height())
         self.setMaximumWidth(self.width())
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
 
+        self.__alunoButton.clicked.connect(self.abre_tela_nivelEvent)
+
+
+    def abre_tela_nivelEvent(self, e):
+        self.a = tela_ensino.TelaEnsino()
+        self.a.show()
+
+        self.close()
+
+
+    def closeEvent(self, e):
+        '''
+            Destrói os objetos na janela principal quando está for fechada
+        '''
+        self.deleteLater()
+
+        
 root = QtGui.QApplication([])
 app = TelaIntro()
 app.show()

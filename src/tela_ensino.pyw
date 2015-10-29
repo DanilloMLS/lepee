@@ -101,7 +101,7 @@ class TelaEnsino(QtGui.QMainWindow):
         '''
         self.deleteLater()
         
-root = QtGui.QApplication([])
+'''root = QtGui.QApplication([])
 app = TelaEnsino()
 app.show()
-root.exec_()
+root.exec_()'''
