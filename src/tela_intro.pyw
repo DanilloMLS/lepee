@@ -30,23 +30,6 @@ class TelaIntro(QtGui.QMainWindow):
         self.__introGif = animated_button.AnimatedButton(self.introGif,'icons\\voltar.gif')
         self.__introGif.setGeometry(self.__introGif.x(),self.__introGif.y(), 211,121)
         self.__introGif.show()
-
-        
-        img = QtGui.QPixmap('icons\\imagem.jpg')
-        label = QtGui.QLabel()
-        alt = self.scrollAreaAluno.widget().height()
-        larg = self.scrollAreaAluno.widget().width()
-        img = img.scaled(QtCore.QSize(larg, alt))
-        label.setPixmap(img)
-        self.scrollAreaAluno.setWidget(label)
-
-        img = QtGui.QPixmap('icons\\imagem.jpg')
-        label = QtGui.QLabel()
-        alt = self.scrollAreaProf.widget().height()
-        larg = self.scrollAreaProf.widget().width()
-        img = img.scaled(QtCore.QSize(larg, alt))
-        label.setPixmap(img)
-        self.scrollAreaProf.setWidget(label)
         
         self.setMaximumHeight(self.height())
         self.setMaximumWidth(self.width())
