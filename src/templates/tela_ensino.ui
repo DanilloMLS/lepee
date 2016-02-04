@@ -48,7 +48,6 @@
          <height>570</height>
         </rect>
        </property>
-       <zorder>sepAreasLine</zorder>
       </widget>
       <widget class="QWidget" name="apresContWidget" native="true">
        <property name="geometry">
@@ -75,6 +74,19 @@
          <enum>Qt::Vertical</enum>
         </property>
        </widget>
+      </widget>
+      <widget class="QPushButton" name="voltarButton">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>610</y>
+         <width>111</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
     </item>

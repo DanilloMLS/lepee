@@ -11,6 +11,7 @@
 '''
 
 # importações necessárias para execução do módulo
+import os
 from PyQt4 import uic, QtGui, QtCore
 
 class ApresOps(object):
@@ -22,7 +23,7 @@ class ApresOps(object):
     '''
     def __init__(self, toplevel=None):
         self.__menu = QtGui.QWidget(toplevel) #Menu para seleção de conteúdos
-        uic.loadUi('templates\\apres_ops.ui', self.getMenu()) #Templete
+        uic.loadUi("templates" + os.sep + "apres_ops.ui", self.getMenu()) #Templete
         self.__signal = QtCore.SIGNAL('ConteudoMudou()')
         self.__cont_atual = None #conteúdo atual
 
@@ -76,11 +77,13 @@ class ApresOps(object):
         if conts: #Se não for um lista vazia
             layout = QtGui.QVBoxLayout()
             widget = QtGui.QWidget()
+            cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
             for cont in conts:
                 btn = QtGui.QPushButton('')
                 btn.setToolTip(cont.getTitulo())
                 btn.setIcon(QtGui.QIcon(cont.getCam_img()))
                 btn.setIconSize(QtCore.QSize(120, 110))
+                btn.setCursor(cursor)
                 self.__conecta_event_btn(btn, cont) #Conecta o botão a um evento de clique
                 layout.addWidget(btn)
             widget.setLayout(layout)

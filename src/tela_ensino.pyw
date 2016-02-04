@@ -9,34 +9,35 @@
     Versão Python: 2.7
     Versão do PyQt: 4.8
 '''
-
+import os
 from PyQt4 import QtGui, QtCore, uic
 import apres_ops
 import conteudo
 import apres_cont
-import animated_button
+from animated import animated_widget
 
 class TelaEnsino(QtGui.QMainWindow):
-    def __init__(self,parent=None):
+    def __init__(self, parent=None, cam_cont_nivel=''):
         super(TelaEnsino, self).__init__()
 
         #Template da janela
-        uic.loadUi("templates\\tela_ensino.ui", self)
+        uic.loadUi("templates" + os.sep + "tela_ensino.ui", self)
 
         #Cria um botão com um gif animado para indicar a volta ao menu inicial
-        self.__voltarBtn = animated_button.AnimatedButton(self.principalWidget, 'icons\\voltar.gif')
-        self.__voltarBtn.show()
-        self.__voltarBtn.clicked.connect(self.__voltar)
+        animated_widget(self.voltarButton,
+                                           'icons' + os.sep + 'voltar.gif')
+        self.voltarButton.show()
+        self.voltarButton.clicked.connect(self.__voltar)
         
 
         #Cria as áres de menu e apresentação de conteúdo
         self.__apres_ops = apres_ops.ApresOps(self.menuWidget)
         self.__apres_cont= apres_cont.ApresCont(self.apresContWidget)
-        self.__conteudoIntr = conteudo.getCont_intr()
-        self.getApres_cont().apresent(self.__conteudoIntr)
+        self.__apres_cont.hide()
+        self.__conteudos = conteudo.getLista_conts(cam_cont_nivel)
         
         #Carrega os conteúdos no menu
-        self.getApres_ops().carregar_conts(self.__conteudoIntr.getLista_conts())
+        self.getApres_ops().carregar_conts(self.__conteudos)
 
         #Apresenta um novo conteúdo selecionado
         self.connect(self.getApres_ops().getMenu(),
@@ -51,12 +52,14 @@ class TelaEnsino(QtGui.QMainWindow):
         self.setMinimumWidth(self.width())
 
     def __voltar(self):
-        self.getApres_ops().carregar_conts(self.__conteudoIntr.getLista_conts())
+        self.getApres_ops().carregar_conts(self.__conteudos)
         
     def muda_ap_cont(self):
         '''
             Apresenta o novo conteúdo selecionado
         '''
+        if self.getApres_cont().isHidden():
+            self.getApres_cont().show()
         self.getApres_cont().apresent(self.getApres_ops().getCont_atual())
 
     def getApres_ops(self):
@@ -84,9 +87,9 @@ class TelaEnsino(QtGui.QMainWindow):
         
         self.menuWidget.setGeometry(0, 0,
                                     self.menuWidget.width(),
-                                    p.height() - 2 * self.__voltarBtn.height())
+                                    p.height() - 2 * self.voltarButton.height())
 
-        self.__voltarBtn.setGeometry(15, self.menuWidget.height() + 10, 150, 80)
+        self.voltarButton.setGeometry(15, self.menuWidget.height() + 10, 150, 80)
 
         self.sepAreasLine.setGeometry(self.sepAreasLine.x(),
                                       self.sepAreasLine.y(),

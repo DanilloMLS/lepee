@@ -14,7 +14,7 @@
 import os
 from PyQt4 import uic, QtGui, QtCore
 from PyQt4 import phonon
-import animated_button
+from animated import animated_widget
 
 class Player(QtGui.QWidget):
     '''
@@ -24,22 +24,24 @@ class Player(QtGui.QWidget):
     def __init__(self, toplevel):
         super(Player, self).__init__()
         self.setParent(toplevel)
+
+        dir_icons = 'icons' + os.sep
         
         #Layout do player
-        uic.loadUi('templates\\Player.ui', self)
+        uic.loadUi("templates" + os.sep + "Player.ui", self)
         self.volumeSlider.setAudioOutput(self.reprVideo.audioOutput())
         self.volumeSlider.setMaximumVolume(0)
         self.volumeSlider.hide()
         
         self.progressoSlider.setMediaObject(self.reprVideo.mediaObject())
 
-        self.__play = animated_button.AnimatedButton(self.botoesWidget, 'icons\\play.gif')
-        self.__play.setGeometry(0, 0, 80, 60)
-        self.__play.clicked.connect(self.play)
+        animated_widget(self.playButton, dir_icons + 'play.gif')
+        self.playButton.setGeometry(0, 0, 80, 60)
+        self.playButton.clicked.connect(self.play)
 
-        self.__parar = animated_button.AnimatedButton(self.botoesWidget, 'icons\\parar.gif')
-        self.__parar.setGeometry(80, 0, 80, 60)
-        self.__parar.clicked.connect(self.pause)
+        animated_widget(self.pauseButton, dir_icons + 'parar.gif')
+        self.pauseButton.setGeometry(80, 0, 80, 60)
+        self.pauseButton.clicked.connect(self.pause)
 
         self.__carregado = False
         self.__tempo = QtCore.QTimer(self) 

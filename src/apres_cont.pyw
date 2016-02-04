@@ -1,5 +1,6 @@
 # -*- coding: cp1252 -*-
 
+import os
 from PyQt4 import uic, QtCore, QtGui
 from player import Player
 from conteudo import Conteudo
@@ -12,7 +13,7 @@ class ApresCont(QtGui.QDockWidget):
     '''
     def __init__(self, toplevel=None, conteudo=None):
         super(ApresCont, self).__init__()
-        uic.loadUi('templates\\apres_cont.ui', self) #template da tela de apresentação
+        uic.loadUi("templates" + os.sep + "apres_cont.ui", self) #template da tela de apresentação
         self.setParent(toplevel)
         self.__player = Player(self.videoWidget) #videoWidget é o contenier do template destinado a armazenar o player
         self.__cont_exibido = conteudo

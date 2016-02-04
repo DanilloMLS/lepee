@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>602</width>
-    <height>323</height>
+    <width>611</width>
+    <height>320</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Player</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="Phonon::VideoPlayer" name="reprVideo">
    <property name="geometry">
@@ -30,6 +33,9 @@
    </property>
    <property name="toolTip">
     <string>Play</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);</string>
    </property>
   </widget>
   <widget class="QSplitter" name="controlSplitter">
@@ -133,8 +139,62 @@ p, li { white-space: pre-wrap; }
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(48, 48, 48);</string>
+    <string notr="true"/>
    </property>
+   <widget class="QPushButton" name="playButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Play&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pauseButton">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pause&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>153</x>
+      <y>0</y>
+      <width>21</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="Phonon::VolumeSlider" name="volumeSlider">
    <property name="geometry">
@@ -150,6 +210,8 @@ p, li { white-space: pre-wrap; }
   <zorder>controlSplitter</zorder>
   <zorder>reprVideo</zorder>
   <zorder>volumeSlider</zorder>
+  <zorder>pauseButton</zorder>
+  <zorder>playButton</zorder>
  </widget>
  <customwidgets>
   <customwidget>
