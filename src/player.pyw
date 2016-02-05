@@ -28,7 +28,7 @@ class Player(QtGui.QWidget):
         dir_icons = 'icons' + os.sep
         
         #Layout do player
-        uic.loadUi("templates" + os.sep + "Player.ui", self)
+	uic.loadUi("templates" + os.sep + "player.ui", self)
         self.volumeSlider.setAudioOutput(self.reprVideo.audioOutput())
         self.volumeSlider.setMaximumVolume(0)
         self.volumeSlider.hide()

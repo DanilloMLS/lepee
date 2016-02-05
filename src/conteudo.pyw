@@ -11,6 +11,7 @@
 
 # importações necessárias
 import os
+import platform
 
 class Conteudo(object):
     '''
@@ -73,7 +74,11 @@ def getLista_conts(cam_cont):
     dir_conts = sep + 'conts' + sep
     
     for titulo in titulos:
-        titulo = titulo.decode("latin1")
+        if platform.system() == 'Windows':
+            titulo = titulo.decode("latin1")
+        else:
+            titulo = titulo.decode("utf8")
+        
         c_img = c_video = ''
         
         if (os.path.exists(cam_cont + titulo + dir_img)):
