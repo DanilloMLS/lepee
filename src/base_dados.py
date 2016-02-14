@@ -70,7 +70,7 @@ class BaseDados:
         #query.exec_("create table sportsmen(id int primary key, " "firstname varchar(20), lastname varchar(20))")
         
         ##query.exec_("insert into professores values(101, 'Roger', 'Federer')")
-        query.exec_("INSERT INTO cadastro VALUES" + "(" + usuario.professor.getNome(), 
+        query.exec_("INSERT INTO cadastro VALUES" + "(" + "NULL", usuario.professor.getNome(), 
                     usuario.professor.getIdade(), usuario.professor.getEscola(), 
                     usuario.professor.getFormacao() + ")")
         
