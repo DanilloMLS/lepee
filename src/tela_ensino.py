@@ -1,5 +1,3 @@
-# -*- coding: cp1252 -*-
-
 '''
     Autor: "Fagner Barros"
     Versão: "2.0.0"
