@@ -159,59 +159,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPlainTextEdit" name="cad_usuario_textEdit">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>240</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>Nome Usuario</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="cad_idade_textEdit">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>280</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>Idade</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="cad_escola_textEdit">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>320</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>Escola</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="cad_formacao_textEdit">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>360</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>Formacao</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="cad_button">
+   <widget class="QPushButton" name="cadastrarButton">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -224,33 +172,7 @@
      <string>Cadastrar</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="login_usuario_textEdit">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>240</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>Usuário</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="cad_nome_textEdit">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>200</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>Nome</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="login_button">
+   <widget class="QPushButton" name="loginButton">
     <property name="geometry">
      <rect>
       <x>660</x>
@@ -263,6 +185,84 @@
      <string>Login</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="nomeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nome</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usuarioLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>240</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nome usuário</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="idadeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>280</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Idade</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="escolaLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>320</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nome</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="formacaoLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>360</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Formação</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="loginUsuarioLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>230</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Usuário</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -270,7 +270,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTELA_DE_CADASTRO_LOGIN">

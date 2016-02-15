@@ -1,33 +1,32 @@
 # -*- coding: cp1252 -*-
 
-from PyQt4 import QtGui, uic
+from PyQt4 import QtGui, QtCore, uic
 import os
 
 import base_dados
 import tela_ensino
 
 class TelaCadLogin(QtGui.QMainWindow):
-    def __init__(self,parent=None):
+    def __init__(self, parent=None):
         
         #reload(sys)
         
         #sys.setdefaultencoding = "utf-8"
  
-        #a = u'\xe1'
+        
         #print str(a) # no exception
         
-        super(TelaCadLogin,self).__init__()
+        super(TelaCadLogin, self).__init__()
         #uic.loadUi("templates\\intro.ui",self)
-        uic.loadUi('templates' + os.sep + 'tela_cad_login.ui',self)
+        uic.loadUi('templates' + os.sep + 'tela_cad_login.ui', self)
         
     
         #Lendo os dados do Cadastro professor
-        self._nome         = self.cad_nome_textEdit.toPlainText()
-        self._nome_usuario      = self.cad_usuario_textEdit.toPlainText()
-        self._idade        = self.cad_idade_textEdit.toPlainText()
-        self._escola       = self.cad_escola_textEdit.toPlainText()
-        self._formacao     = self.cad_formacao_textEdit.toPlainText()
-        
+        self._nome = QtCore.QString(self.nomeLineEdit.text()).toUtf8()
+        self._nome_usuario = QtCore.QString(self.usuarioLineEdit.text()).toUtf8()
+        self._idade = QtCore.QString(self.idadeLineEdit.text()).toUtf8()
+        self._escola = QtCore.QString(self.escolaLineEdit.text()).toUtf8()
+        self._formacao = QtCore.QString(self.formacaoLineEdit.text()).toUtf8()        
         
         print self._nome
         print self._nome_usuario
@@ -36,6 +35,9 @@ class TelaCadLogin(QtGui.QMainWindow):
         print self._formacao
          
 
+    
+            
+        
         #mytext = self.textEdit.toPlainText()
         
 
@@ -69,14 +71,20 @@ class TelaCadLogin(QtGui.QMainWindow):
 
     def closeEvent(self, e):
         '''
-            Destrói os objetos na janela principal quando está for fechada
+            Destroi os objetos na janela principal quando esta for fechada
         '''
         self.deleteLater()
+        
+def testaFocus(self):
+        widget = self.focusWidget()
+        if isinstance(widget, QtGui.QLineEdit):
+            widget.setText('')
 
         
 root = QtGui.QApplication([])
 app = TelaCadLogin()
 app.show()
+app.connect(root, QtCore.SIGNAL("focusChanged(QWidget *, QWidget *)"), testaFocus)
 root.exec_()
 
 # '''

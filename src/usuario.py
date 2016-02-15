@@ -1,19 +1,20 @@
-# -*- coding: cp1252 -*-
+# -*- coding: utf8 -*-
 '''
     Autor: "Mario Costa"
     Email: "mariomenezescosta@gmail.com
-    Data de Criação: 04/02/2016
-    Versão Python: 2.7
+    Data de CriaÃ§Ã£o: 04/02/2016
+    Data da Ultima Modificacao:
+    Author da Ultima Modifcacao
+    VersÃ£o Python: 2.7
 '''
 
-# importações necessárias
+# importaÃ§Ãµes necessarias
 
 class Usuario:
     '''
-        A classe Conteudo representa a modelagem de um conteúdo de informação para uma aula.
-        Este possui video, imagem e subconteúdos.
+        A classe Usuario modela os dados bÃ¡sicos que usuÃ¡rio deve possuir no sistema.
     '''
-    #NOME, ESCOLA EM QUE  LECIONA, IDADE, FORMAÇÃO (GRADUAÇÃO, LACTO OU STRICTO SENSU);
+    #NOME, ESCOLA EM QUE  LECIONA, IDADE, FORMAÃ‡ÃƒO (GRADUACAO, LACTO OU STRICTO SENSU);
     #def __init__(self, nome, escola, idade, formacao):
     def __init__(self, nome, idade):
         self.__nome = nome
@@ -25,10 +26,10 @@ class Usuario:
     def getIdade(self):
         return self.__idade
 
-class professor(Usuario):
+class Professor(Usuario):
     def __init__(self, nome = '', idade = 0, escola = '', formacao = ''):
         
-        Usuario.__init__(self, escola, formacao)
+        super(Usuario, self).__init__(escola, formacao)
     
         self.__escola = escola
         self.__formacao = formacao    
@@ -39,10 +40,10 @@ class professor(Usuario):
     def getFormacao(self):
         return self.__formacao
     
-class aluno(Usuario):
+class Aluno(Usuario):
     def __init__(self, nome = '', idade = 0, serie = 0):
         
-        Usuario.__init__(self, nome, idade)
+        super(Usuario, self).__init__(nome, idade)
         
         self.__serie = serie
     
