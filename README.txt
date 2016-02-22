@@ -1,3 +1,8 @@
+Caracterísitcas da máquina virtual usada:
+S.O.: Win 7 86X Home Premium
+Meméria RAM: 512GB
+HD: 25GB
+
 Lista de Dependências:
 Python 2.7.9:
 	https://www.python.org/ftp/python/2.7.9/python-2.7.9.msi
