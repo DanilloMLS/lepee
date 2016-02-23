@@ -61,8 +61,8 @@ class TelaIntro(QtGui.QMainWindow):
         '''
         self.deleteLater()
 
-        
-root = QtGui.QApplication([])
-app = TelaIntro()
-app.show()
-root.exec_()
+if __name__ == "__main__":        
+    root = QtGui.QApplication([])
+    app = TelaIntro()
+    app.show()
+    root.exec_()

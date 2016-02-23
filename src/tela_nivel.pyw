@@ -38,9 +38,9 @@ class TelaNivel(QtGui.QWidget):
         btn.clicked.connect(lambda: self.__envia_nivel_selec(nivel))
         
     def __envia_nivel_selec(self, nivel):
-        self.tela = tela_ensino.TelaEnsino(None, "niveis" + os.sep +
+        tela = tela_ensino.TelaEnsino(None, "niveis" + os.sep +
                                            nivel + os.sep + "conts" + os.sep)
-        self.tela.show()
+        tela.show()
         self.close()
 
     def closeEvent(self, e):

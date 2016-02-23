@@ -25,7 +25,7 @@ class TelaEnsino(QtGui.QMainWindow):
 
         #Cria um botão com um gif animado para indicar a volta ao menu inicial
         animated_widget(self.voltarButton,
-                                           'icons' + os.sep + 'voltar.gif')
+                       'icons' + os.sep + 'voltar.gif')
         self.voltarButton.show()
         self.voltarButton.clicked.connect(self.__voltar)
         
@@ -89,11 +89,13 @@ class TelaEnsino(QtGui.QMainWindow):
                                     self.menuWidget.width(),
                                     p.height() - 2 * self.voltarButton.height())
 
-        self.voltarButton.setGeometry(15, self.menuWidget.height() + 10, 150, 80)
+        self.voltarButton.setGeometry(15, self.menuWidget.height() + 10,
+                                      150, 80)
 
         self.sepAreasLine.setGeometry(self.sepAreasLine.x(),
                                       self.sepAreasLine.y(),
-                                      self.sepAreasLine.width(), p.height())
+                                      self.sepAreasLine.width(),
+                                      p.height())
 
         self.getApres_cont().resizeEvent(e)
         self.getApres_ops().resizeEvent(e)
