@@ -74,6 +74,7 @@ class ApresOps(object):
             Carrega os conteúdos em forma de botões com imagens de plano de fundo,
             para posteriormente serem selecionados.
         '''
+        print conts # para debug
         if conts: #Se não for um lista vazia
             layout = QtGui.QVBoxLayout()
             widget = QtGui.QWidget()

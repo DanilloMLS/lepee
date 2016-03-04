@@ -19,16 +19,19 @@ from animated import animated_widget
 class TelaEnsino(QtGui.QMainWindow):
     def __init__(self, parent=None, cam_cont_nivel=''):
         super(TelaEnsino, self).__init__()
-
+        print "Entrou na Tela de Ensino"
+        print cam_cont_nivel
+        self.setParent(parent)
+                       
         #Template da janela
-        uic.loadUi("templates" + os.sep + "tela_ensino.ui", self)
+        #os.sep = separador de diretorios do SO
+        uic.loadUi(os.sep.join(["templates","tela_ensino.ui"]), self)
 
         #Cria um botão com um gif animado para indicar a volta ao menu inicial
         animated_widget(self.voltarButton,
-                       'icons' + os.sep + 'voltar.gif')
-        self.voltarButton.show()
-        self.voltarButton.clicked.connect(self.__voltar)
-        
+                       os.sep.join(['icons','voltar.gif']))
+        #self.voltarButton.show()
+        self.voltarButton.clicked.connect(self.__voltar) 
 
         #Cria as áres de menu e apresentação de conteúdo
         self.__apres_ops = apres_ops.ApresOps(self.menuWidget)
@@ -56,7 +59,7 @@ class TelaEnsino(QtGui.QMainWindow):
         
     def muda_ap_cont(self):
         '''
-            Apresenta o novo conteúdo selecionado
+            Apresenta o novo conteudo selecionado
         '''
         if self.getApres_cont().isHidden():
             self.getApres_cont().show()
@@ -102,11 +105,11 @@ class TelaEnsino(QtGui.QMainWindow):
 
     def closeEvent(self, e):
         '''
-            Destrói os objetos na janela principal quando está for fechada
+            Destroi os objetos na janela principal quando esta for fechada
         '''
         self.deleteLater()
-        
-'''root = QtGui.QApplication([])
-app = TelaEnsino()
-app.show()
-root.exec_()'''
+if __name__ == "__main__":    
+    root = QtGui.QApplication([])
+    app = TelaEnsino()
+    app.show()
+    root.exec_()

@@ -9,17 +9,22 @@ def animated_widget(widget, pathGifAnim=None):
         movie.start()
         
         def nextImage(self):
+            
+            try:
+                
+                pix = QtGui.QPixmap(movie.currentPixmap())
+                pix = pix.scaled(widget.width(), widget.height())
 
-            pix = QtGui.QPixmap(movie.currentPixmap())
-            pix = pix.scaled(widget.width(), widget.height())
+                if 'setIcon' in atrib:
+                    widget.setIcon(QtGui.QIcon(pix))
+                    widget.setIconSize(QtCore.QSize(pix.rect().width() * 0.9,
+                                       pix.rect().height() * 0.9))
 
-            if 'setIcon' in atrib:
-                widget.setIcon(QtGui.QIcon(pix))
-                widget.setIconSize(QtCore.QSize(pix.rect().width() * 0.9,
-                                   pix.rect().height() * 0.9))
-
-            elif 'setPixmap' in atrib:
-                widget.setPixmap(pix)
+                elif 'setPixmap' in atrib:
+                    widget.setPixmap(pix)
+                    
+            except RuntimeError:
+                pass
             
         def delete():
             movie.deleteLater()

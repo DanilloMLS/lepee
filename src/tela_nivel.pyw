@@ -17,8 +17,9 @@ import tela_ensino
 class TelaNivel(QtGui.QWidget):
     def __init__(self):
         super(TelaNivel, self).__init__()
-        uic.loadUi("templates" + os.sep + "tela_nivel.ui", self)
-
+        uic.loadUi(os.sep.join(["templates", "tela_nivel.ui"]), self)
+        self.tela = None
+        
         i =  1
         x = 37
         y = 30
@@ -32,22 +33,27 @@ class TelaNivel(QtGui.QWidget):
             if i % 5 == 0:
                 y+= 111
                 x= 37
+        
 
     def __conecta_event_btn(self, btn, nivel):
         #Relaciona um botão e um conteúdo a um evento 
         btn.clicked.connect(lambda: self.__envia_nivel_selec(nivel))
         
     def __envia_nivel_selec(self, nivel):
-        tela = tela_ensino.TelaEnsino(None, "niveis" + os.sep +
-                                           nivel + os.sep + "conts" + os.sep)
-        tela.show()
+        print os.sep.join(["niveis", nivel,"conts", ""]) # Para debug
+        self.tela = tela_ensino.TelaEnsino(cam_cont_nivel=
+                                      os.sep.join(["niveis", nivel,
+                                                  "conts", ""]))
+        self.tela.show()
         self.close()
+        
 
     def closeEvent(self, e):
         self.deleteLater()
-'''        
-root = QtGui.QApplication([])
-app = Nivel()
-app.show()
-root.exec_()
-'''
+        
+if __name__ == "__main__":       
+    root = QtGui.QApplication([])
+    app = TelaNivel()
+    app.show()
+    root.exec_()
+

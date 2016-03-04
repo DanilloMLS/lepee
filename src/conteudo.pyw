@@ -66,32 +66,32 @@ def getLista_conts(cam_cont):
         getList_conteudos(cam_cont) -> list_of_conteudos
         Retorna os subconteudos que o caminho do contéudo referenciado contém.
     '''
-    sep = os.sep
-    titulos = os.listdir(cam_cont) #títulos dos conteúdos contidos no conteúdo corrente
-    conts = []
-    dir_img = sep + 'img' + sep
-    dir_video = sep + 'video' + sep
-    dir_conts = sep + 'conts' + sep
-    
-    for titulo in titulos:
-        if platform.system() == 'Windows':
-            titulo = titulo.decode("latin1")
-        else:
-            titulo = titulo.decode("utf8")
+    if os.path.exists(cam_cont):
+        print "Conteudo existe"
+        print cam_cont
+        sep = os.sep
+        titulos = os.listdir(cam_cont) #títulos dos conteúdos contidos no conteúdo corrente
+        conts = []
+        dir_img = sep + 'img' + sep
+        dir_video = sep + 'video' + sep
+        dir_conts = sep + 'conts' + sep
         
-        c_img = c_video = ''
-        
-        if (os.path.exists(cam_cont + titulo + dir_img)):
-            c_img = (cam_cont + titulo + dir_img +
-                     os.listdir(cam_cont + titulo + dir_img).pop()) #caminho da img do conteúdo
+        for titulo in titulos:
+            c_img = c_video = ''
+            
+            if (os.path.exists(cam_cont + titulo + dir_img)):
+                c_img = (cam_cont + titulo + dir_img +
+                         os.listdir(cam_cont + titulo + dir_img).pop()) #caminho da img do conteúdo
 
-        if (os.path.exists(cam_cont+titulo + dir_video)):
-            c_video = (cam_cont+titulo + dir_video +
-                       os.listdir(cam_cont+titulo + dir_video).pop()) #caminho relativo do vídeo
+            if (os.path.exists(cam_cont+titulo + dir_video)):
+                c_video = (cam_cont+titulo + dir_video +
+                           os.listdir(cam_cont+titulo + dir_video).pop()) #caminho relativo do vídeo
 
-        #diretório onde serão guardados os subconteúdos do conteúdo
-        c_cont = cam_cont + titulo + dir_conts 
-        conts.append(Conteudo(titulo, c_img, c_video, c_cont))
+            #diretório onde serão guardados os subconteúdos do conteúdo
+            c_cont = cam_cont + titulo + dir_conts 
+            conts.append(Conteudo(titulo, c_img, c_video, c_cont))
+    else:
+        raise ValueError("Diretorio não encontrado")
 
     return conts
 
