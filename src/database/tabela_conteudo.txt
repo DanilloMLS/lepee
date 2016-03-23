@@ -1,0 +1,20 @@
+CREATE TABLE conteudo(
+id integer primary key,
+nome_categoria text not null,
+caminho_img text not null,
+caminho_video text not null,
+nome_figura text not null,
+nivel integer not null
+);
+
+
+foram os comandos utilizados para criar a tabela com o sqlite3
+
+para inserir a sintaxe sera essa:
+
+INSERT INTO conteudo VALUES(NULL, '/caminho/para/imagem/', '/caminho/para/video', 'nome_figura', '1');
+
+No caso da insercao do id, adicionando o NULL, ele ira adicionando a partir do 1 e incrementando
+
+
+
