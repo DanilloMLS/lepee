@@ -64,7 +64,10 @@ class ApresOps(object):
             e este deve atualizar a sua apresentação
         '''
         self.__cont_atual = cont
-        self.carregar_conts(cont.getLista_conts())
+        print cont.hasSubConts()
+
+        if cont.hasSubConts():
+            self.carregar_conts(cont.getLista_conts())
 
         #Envia um sinal avisando que mudou o conteúdo corrente
         self.getMenu().emit(self.getSignal()) 
@@ -74,7 +77,7 @@ class ApresOps(object):
             Carrega os conteúdos em forma de botões com imagens de plano de fundo,
             para posteriormente serem selecionados.
         '''
-        print conts # para debug
+        #print conts # para debug
         if conts: #Se não for um lista vazia
             layout = QtGui.QVBoxLayout()
             widget = QtGui.QWidget()
@@ -83,7 +86,7 @@ class ApresOps(object):
                 btn = QtGui.QPushButton('')
                 btn.setToolTip(cont.getTitulo())
                 btn.setIcon(QtGui.QIcon(cont.getCam_img()))
-                btn.setIconSize(QtCore.QSize(120, 110))
+                btn.setIconSize(QtCore.QSize(100, 100))
                 btn.setCursor(cursor)
                 self.__conecta_event_btn(btn, cont) #Conecta o botão a um evento de clique
                 layout.addWidget(btn)
@@ -91,5 +94,5 @@ class ApresOps(object):
             self.__setDisplayOps(widget) #Exibe o conteúdos carregados
 
     def resizeEvent(self, e):
-        p = self.getMenu().parent()
-        self.getMenu().setGeometry(0,0, 180, p.height())
+        '''p = self.getMenu().parent()
+        self.getMenu().setGeometry(0,0, 180, p.height())'''

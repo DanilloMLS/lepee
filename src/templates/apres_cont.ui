@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>884</width>
-    <height>662</height>
+    <width>811</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="features">
@@ -23,10 +23,10 @@
       <widget class="QScrollArea" name="imgScrollArea">
        <property name="geometry">
         <rect>
-         <x>310</x>
+         <x>270</x>
          <y>0</y>
-         <width>171</width>
-         <height>151</height>
+         <width>231</width>
+         <height>161</height>
         </rect>
        </property>
        <property name="verticalScrollBarPolicy">
@@ -43,8 +43,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>169</width>
-          <height>149</height>
+          <width>229</width>
+          <height>159</height>
          </rect>
         </property>
        </widget>
@@ -52,10 +52,10 @@
       <widget class="QWidget" name="videoWidget" native="true">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>270</y>
-         <width>601</width>
-         <height>341</height>
+         <x>140</x>
+         <y>240</y>
+         <width>502</width>
+         <height>370</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -66,7 +66,7 @@
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>230</y>
+         <y>170</y>
          <width>721</width>
          <height>5</height>
         </rect>

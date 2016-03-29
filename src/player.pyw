@@ -36,11 +36,11 @@ class Player(QtGui.QWidget):
         self.progressoSlider.setMediaObject(self.reprVideo.mediaObject())
 
         animated_widget(self.playButton, dir_icons + 'play.gif')
-        self.playButton.setGeometry(0, 0, 80, 60)
+        #self.playButton.setGeometry(0, 0, 80, 60)
         self.playButton.clicked.connect(self.play)
 
         animated_widget(self.pauseButton, dir_icons + 'parar.gif')
-        self.pauseButton.setGeometry(80, 0, 80, 60)
+        #self.pauseButton.setGeometry(80, 0, 80, 60)
         self.pauseButton.clicked.connect(self.pause)
 
         self.__carregado = False
@@ -143,7 +143,7 @@ class Player(QtGui.QWidget):
                     
 
     def resizeEvent(self, e):
-        p = self.parent()
+        '''p = self.parent()
         self.setGeometry(0, 0, p.width(), p.height())
         
         alt_repr = p.height() - self.controlSplitter.height()
@@ -153,7 +153,7 @@ class Player(QtGui.QWidget):
         self.controlSplitter.setGeometry(171, alt_repr,
                                        p.width()-171, self.controlSplitter.height())
         
-        self.botoesWidget.move(0, alt_repr)
+        self.botoesWidget.move(0, alt_repr)'''
 
     def closeEvent(self, e):
         '''

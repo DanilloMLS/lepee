@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>611</width>
-    <height>320</height>
+    <width>502</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>601</width>
-     <height>256</height>
+     <width>501</width>
+     <height>309</height>
     </rect>
    </property>
    <property name="cursor">
@@ -41,10 +41,10 @@
   <widget class="QSplitter" name="controlSplitter">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>260</y>
-     <width>431</width>
-     <height>61</height>
+     <x>150</x>
+     <y>310</y>
+     <width>351</width>
+     <height>63</height>
     </rect>
    </property>
    <property name="mouseTracking">
@@ -83,19 +83,6 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
      <item row="0" column="0" colspan="2">
       <widget class="Phonon::SeekSlider" name="progressoSlider">
        <property name="cursor">
@@ -121,16 +108,30 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
     <zorder>progressoSlider</zorder>
     <zorder>tempoLabel</zorder>
+    <zorder>horizontalSpacer</zorder>
    </widget>
   </widget>
   <widget class="QWidget" name="botoesWidget" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>260</y>
+     <y>330</y>
      <width>171</width>
      <height>61</height>
     </rect>
@@ -141,69 +142,69 @@ p, li { white-space: pre-wrap; }
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <widget class="QPushButton" name="playButton">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>0</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Play&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pauseButton">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>0</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pause&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>153</x>
-      <y>0</y>
-      <width>21</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
   </widget>
   <widget class="Phonon::VolumeSlider" name="volumeSlider">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>320</y>
+     <x>490</x>
+     <y>400</y>
      <width>109</width>
      <height>22</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="playButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>315</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Play&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pauseButton">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>315</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pause&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>123</x>
+     <y>310</y>
+     <width>21</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
    </property>
   </widget>
   <zorder>botoesWidget</zorder>
@@ -212,6 +213,10 @@ p, li { white-space: pre-wrap; }
   <zorder>volumeSlider</zorder>
   <zorder>pauseButton</zorder>
   <zorder>playButton</zorder>
+  <zorder>line</zorder>
+  <zorder>playButton</zorder>
+  <zorder>pauseButton</zorder>
+  <zorder>line</zorder>
  </widget>
  <customwidgets>
   <customwidget>

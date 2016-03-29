@@ -59,6 +59,9 @@ class Conteudo(object):
         '''
         return getLista_conts(self.getCam_list_conts())
 
+    def hasSubConts(self):
+        return os.path.exists(self.getCam_list_conts())
+
 #funções do módulo
 
 def getLista_conts(cam_cont):
@@ -66,6 +69,7 @@ def getLista_conts(cam_cont):
         getList_conteudos(cam_cont) -> list_of_conteudos
         Retorna os subconteudos que o caminho do contéudo referenciado contém.
     '''
+
     if os.path.exists(cam_cont):
         print "Conteudo existe"
         print cam_cont
@@ -88,8 +92,10 @@ def getLista_conts(cam_cont):
                            os.listdir(cam_cont+titulo + dir_video).pop()) #caminho relativo do vídeo
 
             #diretório onde serão guardados os subconteúdos do conteúdo
-            c_cont = cam_cont + titulo + dir_conts 
+            
+            c_cont = cam_cont + titulo + dir_conts
             conts.append(Conteudo(titulo, c_img, c_video, c_cont))
+            
     else:
         raise ValueError("Diretorio não encontrado")
 

@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1016</width>
-    <height>758</height>
+    <width>934</width>
+    <height>668</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Fagner/.designer/icon.png</normaloff>C:/Users/Fagner/.designer/icon.png</iconset>
+    <normaloff>../../../../../../../Fagner/.designer/icon.png</normaloff>../../../../../../../Fagner/.designer/icon.png</iconset>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -45,7 +45,7 @@
          <x>0</x>
          <y>0</y>
          <width>181</width>
-         <height>570</height>
+         <height>550</height>
         </rect>
        </property>
       </widget>
@@ -55,7 +55,7 @@
          <x>190</x>
          <y>0</y>
          <width>811</width>
-         <height>721</height>
+         <height>650</height>
         </rect>
        </property>
        <widget class="Line" name="sepAreasLine">
@@ -64,7 +64,7 @@
           <x>0</x>
           <y>0</y>
           <width>5</width>
-          <height>721</height>
+          <height>650</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -78,10 +78,10 @@
       <widget class="QPushButton" name="voltarButton">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>610</y>
-         <width>111</width>
-         <height>91</height>
+         <x>30</x>
+         <y>560</y>
+         <width>121</width>
+         <height>61</height>
         </rect>
        </property>
        <property name="text">

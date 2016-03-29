@@ -46,14 +46,15 @@ class TelaEnsino(QtGui.QMainWindow):
         self.connect(self.getApres_ops().getMenu(),
                      self.getApres_ops().getSignal(), self.muda_ap_cont)
 
-        self.showMaximized()#Exibe em fullscreen
+        #self.showMaximized()#Exibe em fullscreen
 
         #Desabilita o botão maximizar
+        
         self.setMaximumHeight(self.height())
         self.setMaximumWidth(self.width())
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
-
+        
     def __voltar(self):
         self.getApres_ops().carregar_conts(self.__conteudos)
         
@@ -83,7 +84,7 @@ class TelaEnsino(QtGui.QMainWindow):
         '''
             Redimensiona a tela inicial e seus objetos
         '''
-        p = self.geometry()
+        '''p = self.geometry()
         
         self.apresContWidget.setGeometry(190, 0,
                                          p.width() - 190, p.height())
@@ -99,15 +100,16 @@ class TelaEnsino(QtGui.QMainWindow):
                                       self.sepAreasLine.y(),
                                       self.sepAreasLine.width(),
                                       p.height())
-
+        
         self.getApres_cont().resizeEvent(e)
-        self.getApres_ops().resizeEvent(e)
+        self.getApres_ops().resizeEvent(e)'''
 
     def closeEvent(self, e):
         '''
             Destroi os objetos na janela principal quando esta for fechada
         '''
         self.deleteLater()
+        
 if __name__ == "__main__":    
     root = QtGui.QApplication([])
     app = TelaEnsino()
