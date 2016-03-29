@@ -41,14 +41,18 @@ class Professor(Usuario):
         return self.__formacao
     
 class Aluno(Usuario):
-    def __init__(self, nome = '', idade = 0, serie = 0):
+    def __init__(self, nome = '', idade = 0, serie = 0, id_professor):
         
         super(Usuario, self).__init__(nome, idade)
         
         self.__serie = serie
+        self.__id_professor = id_professor
     
     def getSerie(self):
         return self.__serie
+    
+    def getIdProfessor(self):
+        return self.__id_professor
     
     
     

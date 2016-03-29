@@ -6,72 +6,212 @@ Created on 4 de fev de 2016
 '''
 #Tive que instalar o python-qt4-sql
 #no ubuntu 14.04: sudo apt-get install python-qt4-sql
- 
+
+
 from PyQt4 import QtSql, QtGui
-import usuario
  
 class BaseDados:
  
  
-    def carrega_db_professor(self):
+    def erro_carregar_banco(self):
         
-        db_professor = QtSql.QSqlDatabase.addDatabase('QSQLITE')
-        #db_professor.setDatabaseName('sports.db')
-        db_professor.open('professor.db')
-    
-        if not db_professor.open():
-            QtGui.QMessageBox.critical(None, QtGui.qApp.tr("Cannot open database"),
-                                       QtGui.qApp.tr("Unable to establish a database connection.\n" 
-                                                     "This example needs SQLite support. Please read " 
-                                                     "the Qt SQL driver documentation for information " 
-                                                     "how to build it.\n\n" "Click Cancel to exit."),
+        QtGui.QMessageBox.critical(None, QtGui.qApp.tr("Nao foi possivel abrir o banco"),
+                                       QtGui.qApp.tr("Nao foi possivel estabeleces conoexao com o banco de dados.\n"),
                                        QtGui.QMessageBox.Cancel)
+    
+    def adiciona_analise_quantitativa(self, resposta1, resposta2, resposta3, resposta4, resposta5):
+        
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+
+        db.open('tabela_quanti.db')
+        
+        if db:
+            status = True
+    
+        else:
+            status = False
+            self.erro_carregar_banco()
+        
+        query = QtSql.QSqlQuery(db)
+        
+        query.exec_("INSERT INTO professores VALUES" + "(" + resposta1, resposta2, resposta3, 
+                    resposta4, resposta5 + ")")
+        
+        db.close()
             
-            return False
+        return status
         
+    def adiciona_analise_qualitativa(self, resposta1, resposta2, resposta3, resposta4, resposta5):
         
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+
+        db.open('tabela_quali.db')
         
-        return True
-    #Cria uma base comm os dados do professor
-#     def cria_base_professor(self, usuario):
-#          
-#         try:
-#             con = lite.connect('professores.db')
-#                  
-#             with con:
-#              
-#                 cur = con.cursor()    
-#                 cur.execute("CREATE TABLE cadastro(id INT, nome TEXT, idade INT, escola TEXT, formacao TEXT)")
-#                 cur.execute("INSERT INTO cadastro VALUES" + "(" + usuario.professor.getNome(), usuario.professor.getIdade(),
-#                                             usuario.professor.getEscola(), usuario.professor.getFormacao() + ")")
-#                 con.commit()
-#         except lite.Erro, e:
-#      
-#             if con:
-#                 con.rollback()
-#          
-#             print "Error %s:" % e.args[0]
-#             sys.exit(1)
-#      
-#         finally:
-#      
-#             if con:
-#                 con.close()  
-#               
-    #def remove_cadastro_professor(self, usuario):
-        
+        if db:
+            status = True
     
-    #def cria_base_alunos(self, usuario):
-    def cadastra_professor(self):
+        else:
+            status = False
+            self.erro_carregar_banco()
         
-        query = QtSql.QSqlQuery()
+        query = QtSql.QSqlQuery(db)
+        
+        query.exec_("INSERT INTO professores VALUES" + "(" + resposta1, resposta2, resposta3, 
+                    resposta4, resposta5 + ")")
+        
+        db.close()
+            
+        return status
     
-        #Se precisarmos criar uma base:
-        #query.exec_("create table sportsmen(id int primary key, " "firstname varchar(20), lastname varchar(20))")
+    def adiciona_professor(self, nome, idade, nome_escola, formacao):
         
-        ##query.exec_("insert into professores values(101, 'Roger', 'Federer')")
-        query.exec_("INSERT INTO cadastro VALUES" + "(" + "NULL", usuario.professor.getNome(), 
-                    usuario.professor.getIdade(), usuario.professor.getEscola(), 
-                    usuario.professor.getFormacao() + ")")
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+
+        db.open('tabela_professores.db')
         
-         
+        if db:
+            status = True
+    
+        else:
+            status = False
+            self.erro_carregar_banco()
+            
+        query = QtSql.QSqlQuery(db)
+        
+        
+        query.exec_("INSERT INTO professores VALUES" + "(" + "NULL", nome, idade, nome_escola, 
+                    formacao + ")")
+        
+        db.close()
+        
+        return status
+        
+    def adiciona_aluno(self, nome, idade, serie, id_professor):
+        
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+
+        db.open('tabela_alunos.db')
+        
+        if db:
+            status = True
+    
+        else:
+            status = False
+            self.erro_carregar_banco()
+            
+        query = QtSql.QSqlQuery(db)
+        
+        query.exec_("INSERT INTO alunos VALUES" + "(" + "NULL", nome, idade, serie, id_professor +")")
+        
+        db.close()
+        
+        return status
+        
+    def consulta_professor_nome(self, nome_professor):
+        
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+
+        db.open('tabela_professores.db')
+        
+        if db:
+            status = True
+    
+        else:
+            status = False
+            self.erro_carregar_banco()
+        
+        query = QtSql.QsqlQuery(db)
+    
+        sqlqry = "SELECT id FROM professores WHERE nome = " + nome_professor 
+        
+        if query.exec_(sqlqry):
+            while query.next():
+                nome = query.value(0).toString()
+                print nome
+        
+        db.close()
+        
+        return status
+        
+    def consulta_professor_login(self, login_professor):
+        
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+        
+        db.open('tabela_professores.db')
+        
+        if db:
+            
+            status = True
+        else:
+            self.erro_carregar_banco()
+            status = False
+
+            
+        query = QtSql.QsqlQuery(db)
+    
+        sqlqry = "SELECT id FROM professores WHERE login = " + login_professor 
+        
+        if query.exec_(sqlqry):
+            while query.next():
+                login = query.value(0).toString()
+                print login
+                
+        db.close()
+        
+        return status
+        
+    def consulta_aluno_nome(self, nome_aluno):
+        
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+        
+        db.open('tabela_alunos.db')
+        
+        if db:
+            
+            status = True
+    
+        else:
+            self.erro_carregar_banco()
+            status = False
+        
+        query = QtSql.QsqlQuery(db)
+    
+        sqlqry = "SELECT id FROM alunos WHERE nome = " + nome_aluno 
+        
+        if query.exec_(sqlqry):
+            while query.next():
+                nome = query.value(0).toString()
+                print nome
+                
+        db.close()
+        
+        return status
+        
+    def consulta_conteudo_nome(self, nome_categoria):
+        
+        
+        db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
+
+        db.open('tabela_conteudo.db')
+        
+        if db:
+            
+            status = True
+    
+        else:
+            self.erro_carregar_banco()
+            status = False
+            
+        query = QtSql.QsqlQuery(db)
+    
+        sqlqry = "SELECT id FROM conteudo WHERE nome_categoria = " + nome_categoria
+        
+        if query.exec_(sqlqry):
+            while query.next():
+                login = query.value(0).toString()
+                print login
+        
+                
+        db.close()
+        
+        return status

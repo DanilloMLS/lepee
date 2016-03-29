@@ -4,4 +4,4 @@ encoding/base_dados.py=utf-8
 encoding/tela_cad_login.py=cp1252
 encoding/tela_ensino.py=cp1252
 encoding/tela_intro.py=cp1252
-encoding/usuario.py=cp1252
+encoding/usuario.py=utf8
