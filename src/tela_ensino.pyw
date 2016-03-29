@@ -35,7 +35,7 @@ class TelaEnsino(QtGui.QMainWindow):
 
         #Cria as áres de menu e apresentação de conteúdo
         self.__apres_ops = apres_ops.ApresOps(self.menuWidget)
-        self.__apres_cont= apres_cont.ApresCont(self.apresContWidget)
+        self.__apres_cont = apres_cont.ApresCont(self.apresContWidget)
         self.__apres_cont.hide()
         self.__conteudos = conteudo.getLista_conts(cam_cont_nivel)
         

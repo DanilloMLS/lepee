@@ -25,10 +25,10 @@ class TelaIntro(QtGui.QMainWindow):
         
         cursor = QtGui.QCursor(QtGui.QPixmap(dir_icons + 'pointingHand.png'))
 
-        animated_widget(self.alunoButton, dir_icons + 'parar.gif')
+        '''animated_widget(self.alunoButton, dir_icons + 'parar.gif')
         self.alunoButton.setGeometry(self.alunoButton.x(), self.alunoButton.y(), 251, 200)
         self.alunoButton.setCursor(cursor)
-        self.alunoButton.show()
+        self.alunoButton.show()'''
         
         animated_widget(self.profButton, dir_icons + 'parar.gif')
         self.profButton.setGeometry(self.profButton.x(), self.profButton.y(), 251, 200)
@@ -45,7 +45,7 @@ class TelaIntro(QtGui.QMainWindow):
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
 
-        self.alunoButton.clicked.connect(self.abre_tela_nivelEvent)
+        #self.alunoButton.clicked.connect(self.abre_tela_nivelEvent)
         self.profButton.clicked.connect(self.abre_tela_login)
         
     def abre_tela_nivelEvent(self, e):
@@ -55,7 +55,7 @@ class TelaIntro(QtGui.QMainWindow):
         self.close()
     
     def abre_tela_login(self, e):
-        self.a = tela_login.TelaLogin()
+        self.a = tela_nivel.TelaNivel()
         self.a.show()
 
         self.close()

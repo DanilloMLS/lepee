@@ -19,20 +19,25 @@ class TelaNivel(QtGui.QWidget):
         super(TelaNivel, self).__init__()
         uic.loadUi(os.sep.join(["templates", "tela_nivel.ui"]), self)
         self.tela = None
+        cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
+
+        self.nivel1Button.setCursor(cursor)
+        self.nivel2Button.setCursor(cursor)
+        self.nivel3Button.setCursor(cursor)
+        self.nivel4Button.setCursor(cursor)
+        self.nivel5Button.setCursor(cursor)
         
-        i =  1
-        x = 37
-        y = 30
-        for nivel in os.listdir("niveis"):
+        self.__conecta_event_btn(self.nivel1Button, "nivel 1")
+        self.__conecta_event_btn(self.nivel2Button, "nivel 2")
+        self.__conecta_event_btn(self.nivel3Button, "nivel 3")
+        self.__conecta_event_btn(self.nivel4Button, "nivel 4")
+        self.__conecta_event_btn(self.nivel5Button, "nivel 5")
+
+        '''for nivel in os.listdir("niveis"):
             btn = QtGui.QPushButton(self)
             btn.setGeometry(x, y, 151, 111)
             self.__conecta_event_btn(btn, nivel)
-            btn.show()
-            x += 151
-            i+=1
-            if i % 5 == 0:
-                y+= 111
-                x= 37
+            btn.show()'''
         
 
     def __conecta_event_btn(self, btn, nivel):

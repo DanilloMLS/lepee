@@ -17,6 +17,7 @@ class ApresCont(QtGui.QDockWidget):
         self.setParent(toplevel)
         self.__player = Player(self.videoWidget) #videoWidget é o contenier do template destinado a armazenar o player
         self.__cont_exibido = conteudo
+        #self.__player.move(0, 40)
         self.apresent(conteudo)
 
     def __carregar_img(self, cam_img):
@@ -46,7 +47,7 @@ class ApresCont(QtGui.QDockWidget):
             self.__carregar_img(self.getCont_exibido().getCam_img())
             
     def resizeEvent(self, e):
-        p = self.parent()
+        '''p = self.parent()
         self.setGeometry(0, 0, p.width(), p.height())
 
         alt = self.height()
@@ -63,7 +64,7 @@ class ApresCont(QtGui.QDockWidget):
 
         if self.getCont_exibido() is not None:
             self.__carregar_img(self.getCont_exibido().getCam_img())
-        self.__player.resizeEvent(e)
+        self.__player.resizeEvent(e)'''
 
     def closeEvent(self, e):
         '''

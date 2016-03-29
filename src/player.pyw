@@ -38,6 +38,7 @@ class Player(QtGui.QWidget):
         animated_widget(self.playButton, dir_icons + 'play.gif')
         #self.playButton.setGeometry(0, 0, 80, 60)
         self.playButton.clicked.connect(self.play)
+        self.playIlustrativoButton.clicked.connect(self.play)
 
         animated_widget(self.pauseButton, dir_icons + 'parar.gif')
         #self.pauseButton.setGeometry(80, 0, 80, 60)
@@ -91,6 +92,7 @@ class Player(QtGui.QWidget):
         existe = os.path.exists(cam_video)
         if existe:
             cam_midia = phonon.Phonon.MediaSource(cam_video)
+            self.playIlustrativoButton.show()
             self.reprVideo.load(cam_midia)
             self.__video_atual = cam_video
         else:
@@ -101,12 +103,15 @@ class Player(QtGui.QWidget):
     def reiniciar(self):
         self.__tempo.stop()
         self.reprVideo.stop()
+        self.playIlustrativoButton.show()
     
     def play(self):
         '''
             Inicia o video após este ter sido carregado através da função carregar
         '''
         if self.isCarregado() and not self.reprVideo.isPlaying():
+            print "Entrou no play"
+            self.playIlustrativoButton.setHidden(True)
             self.reprVideo.play()
             self.__tempo.start()
 
@@ -115,6 +120,8 @@ class Player(QtGui.QWidget):
             Pause o video se este estiver em play
         '''
         if self.isCarregado() and  self.reprVideo.isPlaying():
+            print "Entrou no pause"
+            self.playIlustrativoButton.show()
             self.reprVideo.pause()
             self.__tempo.stop()
 
