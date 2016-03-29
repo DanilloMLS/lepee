@@ -122,7 +122,7 @@ class BaseDados:
         
         query = QtSql.QsqlQuery(db)
     
-        sqlqry = "SELECT id FROM professores WHERE nome = " + nome_professor 
+        sqlqry = "SELECT * FROM professores WHERE nome = " + nome_professor 
         
         if query.exec_(sqlqry):
             while query.next():
@@ -149,7 +149,7 @@ class BaseDados:
             
         query = QtSql.QsqlQuery(db)
     
-        sqlqry = "SELECT id FROM professores WHERE login = " + login_professor 
+        sqlqry = "SELECT * FROM professores WHERE login = " + login_professor 
         
         if query.exec_(sqlqry):
             while query.next():
@@ -176,7 +176,7 @@ class BaseDados:
         
         query = QtSql.QsqlQuery(db)
     
-        sqlqry = "SELECT id FROM alunos WHERE nome = " + nome_aluno 
+        sqlqry = "SELECT * FROM alunos WHERE nome_luno = " + nome_aluno 
         
         if query.exec_(sqlqry):
             while query.next():
@@ -204,7 +204,7 @@ class BaseDados:
             
         query = QtSql.QsqlQuery(db)
     
-        sqlqry = "SELECT id FROM conteudo WHERE nome_categoria = " + nome_categoria
+        sqlqry = "SELECT * FROM conteudo WHERE nome_categoria = " + nome_categoria
         
         if query.exec_(sqlqry):
             while query.next():
