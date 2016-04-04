@@ -2,8 +2,10 @@
 
 import os
 from PyQt4 import uic, QtCore, QtGui
+from animated import animated_widget
 from player import Player
 from conteudo import Conteudo
+
 
 class ApresCont(QtGui.QDockWidget):
     '''
@@ -20,6 +22,9 @@ class ApresCont(QtGui.QDockWidget):
         #self.__player.move(0, 40)
         self.apresent(conteudo)
 
+        dir_icons = "icons" + os.sep
+
+    
     def __carregar_img(self, cam_img):
         img = QtGui.QPixmap(cam_img)
         label = QtGui.QLabel()

@@ -14,6 +14,7 @@ from PyQt4 import QtGui, QtCore, uic
 import apres_ops
 import conteudo
 import apres_cont
+import tela_avaliacao
 from animated import animated_widget
 
 class TelaEnsino(QtGui.QMainWindow):
@@ -54,6 +55,15 @@ class TelaEnsino(QtGui.QMainWindow):
         self.setMaximumWidth(self.width())
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
+
+        self.avalButton.clicked.connect(self.abre_tela_aval)
+
+
+    def abre_tela_aval(self, e):
+        self.a = tela_avaliacao.TelaAvaliacao()
+        self.a.show()
+
+        self.close()
         
     def __voltar(self):
         self.getApres_ops().carregar_conts(self.__conteudos)
