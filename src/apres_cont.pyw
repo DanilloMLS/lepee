@@ -7,7 +7,7 @@ from player import Player
 from conteudo import Conteudo
 
 
-class ApresCont(QtGui.QDockWidget):
+class ApresCont(QtGui.QWidget):
     '''
         Classe resposável pela apresentação de um conteúdo
         em um formato específico
@@ -20,6 +20,13 @@ class ApresCont(QtGui.QDockWidget):
         self.__player = Player(self.videoWidget) #videoWidget é o contenier do template destinado a armazenar o player
         self.__cont_exibido = conteudo
         #self.__player.move(0, 40)
+
+        '''self.setAutoFillBackground(True)
+        img = QtGui.QPixmap(palette.button().texture())
+        img = img.scaled(QtCore.QSize(self.width(), self.height()))
+        palette.setBrush(palette.Background, QtGui.QBrush(img))
+        self.setPalette(palette)'''
+        
         self.apresent(conteudo)
 
         dir_icons = "icons" + os.sep

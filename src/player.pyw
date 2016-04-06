@@ -29,6 +29,9 @@ class Player(QtGui.QWidget):
         
         #Layout do player
 	uic.loadUi("templates" + os.sep + "player.ui", self)
+        
+        cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
+	
         self.volumeSlider.setAudioOutput(self.reprVideo.audioOutput())
         self.volumeSlider.setMaximumVolume(0)
         self.volumeSlider.hide()
@@ -43,6 +46,14 @@ class Player(QtGui.QWidget):
         animated_widget(self.pauseButton, dir_icons + 'parar.gif')
         #self.pauseButton.setGeometry(80, 0, 80, 60)
         self.pauseButton.clicked.connect(self.pause)
+
+        
+        self.playButton.setCursor(cursor)
+        self.playIlustrativoButton.setCursor(cursor)
+        self.pauseButton.setCursor(cursor)
+        self.volumeSlider.setCursor(cursor)
+        self.progressoSlider.setCursor(cursor)
+        self.reprVideo.setCursor(cursor)
 
         self.__carregado = False
         self.__tempo = QtCore.QTimer(self) 

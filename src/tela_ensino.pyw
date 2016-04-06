@@ -18,7 +18,7 @@ import tela_avaliacao
 from animated import animated_widget
 
 class TelaEnsino(QtGui.QMainWindow):
-    def __init__(self, parent=None, cam_cont_nivel=''):
+    def __init__(self, parent=None, cam_cont_nivel='', palette=None):
         super(TelaEnsino, self).__init__()
         print "Entrou na Tela de Ensino"
         print cam_cont_nivel
@@ -28,12 +28,12 @@ class TelaEnsino(QtGui.QMainWindow):
         #os.sep = separador de diretorios do SO
         uic.loadUi(os.sep.join(["templates","tela_ensino.ui"]), self)
 
+        cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
+        
         #Cria um botão com um gif animado para indicar a volta ao menu inicial
         animated_widget(self.voltarButton,
                        os.sep.join(['icons','voltar.gif']))
-        #self.voltarButton.show()
-        self.voltarButton.clicked.connect(self.__voltar) 
-
+        
         #Cria as áres de menu e apresentação de conteúdo
         self.__apres_ops = apres_ops.ApresOps(self.menuWidget)
         self.__apres_cont = apres_cont.ApresCont(self.apresContWidget)
@@ -47,16 +47,32 @@ class TelaEnsino(QtGui.QMainWindow):
         self.connect(self.getApres_ops().getMenu(),
                      self.getApres_ops().getSignal(), self.muda_ap_cont)
 
+        #palette = QtGui.QPalette()
+        #palette.setBrush(QtGui.QPalette.Background, QtGui.QBrush(QtGui.QPixmap("icons\\background\\violeta_lé'pée.png")))
+        self.setAutoFillBackground(True)
+        img = QtGui.QPixmap(palette.button().texture())
+        img = img.scaled(QtCore.QSize(self.width(), self.height()))
+        palette.setBrush(palette.Background, QtGui.QBrush(img))
+        self.setPalette(palette)
+
+        
         #self.showMaximized()#Exibe em fullscreen
 
         #Desabilita o botão maximizar
-        
         self.setMaximumHeight(self.height())
         self.setMaximumWidth(self.width())
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
-
+    
         self.avalButton.clicked.connect(self.abre_tela_aval)
+        
+
+        #self.voltarButton.show()
+        self.voltarButton.clicked.connect(self.__voltar)
+
+        self.voltarButton.setCursor(cursor)
+        self.avalButton.setCursor(cursor)
+        
 
 
     def abre_tela_aval(self, e):
