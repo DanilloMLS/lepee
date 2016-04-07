@@ -31,12 +31,12 @@ class TelaNivel(QtGui.QWidget):
     
         self.nivel1Button.setFlat(True)
         self.nivel1Button.setAutoFillBackground(True)
-        palette.setBrush(self.nivel1Button.backgroundRole(), QtGui.QBrush(QtGui.QPixmap("icons\\background\\violeta_lé'pée.png")))
+        palette.setBrush(self.nivel1Button.backgroundRole(), QtGui.QBrush(QtGui.QPixmap("background\\violeta_lé'pée.png")))
         self.nivel1Button.setPalette(palette)
         
         self.nivel2Button.setFlat(True)
         self.nivel2Button.setAutoFillBackground(True)
-        palette.setBrush(self.nivel2Button.backgroundRole(), QtGui.QBrush(QtGui.QPixmap("icons\\background\\verde_lé'pée.png")))
+        palette.setBrush(self.nivel2Button.backgroundRole(), QtGui.QBrush(QtGui.QPixmap("background\\verde_lé'pée.png")))
         self.nivel2Button.setPalette(palette)
         
         self.__conecta_event_btn(self.nivel1Button, "nivel 1")
