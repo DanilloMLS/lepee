@@ -18,17 +18,30 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
 
-        self.salvarButton.clicked.connect(self.abre_tela_nivel)
+        self.salvarButton.clicked.connect(self.salvar_avaliacao)
 
+    def salvar_avaliacao(self, e):
+        profe = str(self.profText.text().toUtf8()).decode('utf8')
+        aluno = str(self.alunoText.text().toUtf8()).decode('utf8')
+        aval = str(self.avalText.toPlainText())
+        arquivo=open("avaliacao.txt","w")
+        arquivo.write("Professor: "+profe)
+        arquivo.write("\n")
+        arquivo.write("Aluno: "+aluno)
+        arquivo.write("\n")
+        arquivo.write("Avaliação: "+aval)
+        arquivo.close()
+        self.close()
+    
     def abre_tela_nivel(self, e):
         self.a = tela_nivel.TelaNivel()
         self.a.show()
 
         self.close()
 
-'''      
+     
 root = QtGui.QApplication([])
 app = TelaAvalQualitativa()
 app.show()
 root.exec_()
-'''
+
