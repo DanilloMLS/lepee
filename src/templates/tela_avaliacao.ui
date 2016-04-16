@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>781</width>
-    <height>655</height>
+    <width>1160</width>
+    <height>672</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="alter1">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>322</y>
+      <x>130</x>
+      <y>492</y>
       <width>75</width>
       <height>51</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="alter2">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>380</y>
+      <x>130</x>
+      <y>550</y>
       <width>75</width>
       <height>51</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QPushButton" name="alter3">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>440</y>
+      <x>350</x>
+      <y>460</y>
       <width>75</width>
       <height>51</height>
      </rect>
@@ -56,8 +56,8 @@
    <widget class="QPushButton" name="alter4">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>500</y>
+      <x>350</x>
+      <y>520</y>
       <width>75</width>
       <height>51</height>
      </rect>
@@ -66,11 +66,11 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="proxPerg">
+   <widget class="QPushButton" name="proxPergButton">
     <property name="geometry">
      <rect>
-      <x>674</x>
-      <y>570</y>
+      <x>1070</x>
+      <y>580</y>
       <width>81</width>
       <height>51</height>
      </rect>
@@ -82,28 +82,28 @@
    <widget class="QWidget" name="perguntaWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
-      <width>371</width>
-      <height>271</height>
+      <x>10</x>
+      <y>10</y>
+      <width>571</width>
+      <height>431</height>
      </rect>
     </property>
    </widget>
    <widget class="QWidget" name="alternativaWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>310</y>
-      <width>381</width>
-      <height>251</height>
+      <x>590</x>
+      <y>160</y>
+      <width>561</width>
+      <height>411</height>
      </rect>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="radioButton_1">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>340</y>
+      <x>80</x>
+      <y>510</y>
       <width>31</width>
       <height>17</height>
      </rect>
@@ -115,8 +115,8 @@
    <widget class="QRadioButton" name="radioButton_2">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>400</y>
+      <x>80</x>
+      <y>570</y>
       <width>31</width>
       <height>17</height>
      </rect>
@@ -128,8 +128,8 @@
    <widget class="QRadioButton" name="radioButton_3">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>460</y>
+      <x>300</x>
+      <y>480</y>
       <width>31</width>
       <height>17</height>
      </rect>
@@ -141,8 +141,8 @@
    <widget class="QRadioButton" name="radioButton_4">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>520</y>
+      <x>300</x>
+      <y>540</y>
       <width>31</width>
       <height>17</height>
      </rect>
@@ -154,8 +154,8 @@
    <widget class="QRadioButton" name="radioButton_5">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>580</y>
+      <x>300</x>
+      <y>600</y>
       <width>31</width>
       <height>17</height>
      </rect>
@@ -167,8 +167,8 @@
    <widget class="QPushButton" name="alter5">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>560</y>
+      <x>350</x>
+      <y>580</y>
       <width>75</width>
       <height>51</height>
      </rect>
@@ -181,10 +181,10 @@
    <zorder>alter2</zorder>
    <zorder>alter3</zorder>
    <zorder>alter4</zorder>
-   <zorder>proxPerg</zorder>
+   <zorder>proxPergButton</zorder>
    <zorder>perguntaWidget</zorder>
    <zorder>alternativaWidget</zorder>
-   <zorder>radioButton</zorder>
+   <zorder>radioButton_1</zorder>
    <zorder>radioButton_4</zorder>
    <zorder>radioButton_3</zorder>
    <zorder>radioButton_2</zorder>

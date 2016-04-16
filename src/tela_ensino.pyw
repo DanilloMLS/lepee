@@ -63,19 +63,29 @@ class TelaEnsino(QtGui.QMainWindow):
         self.setMaximumWidth(self.width())
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
-    
-        self.avalButton.clicked.connect(self.abre_tela_aval)
-        
+
+        #Vai para avaliação quantitativa
+        #self.avalButton.clicked.connect(self.abre_tela_aval)
+        self.__conecta_event_btn(self.avalButton, cam_cont_nivel)
 
         #self.voltarButton.show()
         self.voltarButton.clicked.connect(self.__voltar)
 
         self.voltarButton.setCursor(cursor)
         self.avalButton.setCursor(cursor)
+            
+
+    def __conecta_event_btn(self, btn, nivel):
+        btn.clicked.connect(lambda: self.__envia_nivel_selec(nivel, btn))
         
+    def __envia_nivel_selec(self, nivel, btn):
+        #print os.sep.join(["niveis", nivel,"conts", ""]) # Para debug
+        self.tela = tela_avaliacao.TelaAvaliacao(nivel,nivel)
 
+        self.tela.show()
+        self.close()
 
-    def abre_tela_aval(self, e):
+    def abre_tela_aval(self, nivel):
         self.a = tela_avaliacao.TelaAvaliacao()
         self.a.show()
 

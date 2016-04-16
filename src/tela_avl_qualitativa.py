@@ -6,13 +6,20 @@
 
 import os
 import tela_nivel
+import avaliacao
 from PyQt4 import uic, QtCore, QtGui
 
 class TelaAvalQualitativa(QtGui.QMainWindow):
-    def __init__(self,parent=None):
+    def __init__(self,nivel,numAcertos,parent=None):
         super(TelaAvalQualitativa, self).__init__()
         uic.loadUi(os.sep.join(["templates","tela_avl_qualitativa.ui"]), self)
-
+        #print nivel
+        #print numAcertos
+        self.nivelLabel.setText(nivel)
+        self.acertoLabel.setText(str(numAcertos))
+        self.nivel = nivel
+        self.numAcertos = str(numAcertos)
+        
         self.setMaximumHeight(self.height())
         self.setMaximumWidth(self.width())
         self.setMinimumHeight(self.height())
@@ -24,7 +31,11 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
         profe = str(self.profText.text().toUtf8()).decode('utf8')
         aluno = str(self.alunoText.text().toUtf8()).decode('utf8')
         aval = str(self.avalText.toPlainText())
-        arquivo=open("avaliacao.txt","w")
+        arquivo=open("avaliacoes/avaliacao.txt","w")
+        arquivo.write("Nível: "+self.nivel)
+        arquivo.write("\n")
+        arquivo.write("Número de Acertos: "+self.numAcertos)
+        arquivo.write("\n")
         arquivo.write("Professor: "+profe)
         arquivo.write("\n")
         arquivo.write("Aluno: "+aluno)
@@ -39,9 +50,9 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
 
         self.close()
 
-     
+'''
 root = QtGui.QApplication([])
 app = TelaAvalQualitativa()
 app.show()
 root.exec_()
-
+'''
