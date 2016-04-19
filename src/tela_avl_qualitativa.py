@@ -31,6 +31,22 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
         profe = str(self.profText.text().toUtf8()).decode('utf8')
         aluno = str(self.alunoText.text().toUtf8()).decode('utf8')
         aval = str(self.avalText.toPlainText())
+
+        arquivo = open("avaliacoes/avaliacao.txt","r")
+        conteudo = arquivo.readlines()
+        arquivo = open("avaliacoes/avaliacao.txt","w")
+        conteudo.append("\n===============================")
+        conteudo.append("\nNível: "+self.nivel)
+        conteudo.append("\n")
+        conteudo.append("Número de Acertos: "+self.numAcertos)
+        conteudo.append("\n")
+        conteudo.append("Professor: "+profe)
+        conteudo.append("\n")
+        conteudo.append("Aluno: "+aluno)
+        conteudo.append("\n")
+        conteudo.append("Avaliação: "+aval)
+        arquivo.writelines(conteudo)
+        '''
         arquivo=open("avaliacoes/avaliacao.txt","w")
         arquivo.write("Nível: "+self.nivel)
         arquivo.write("\n")
@@ -41,6 +57,7 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
         arquivo.write("Aluno: "+aluno)
         arquivo.write("\n")
         arquivo.write("Avaliação: "+aval)
+        '''
         arquivo.close()
         self.close()
     
