@@ -1,19 +1,32 @@
 
 ===============================
-Nível: nivel1
-Número de Acertos: 0
+Nível: 1
+Número de Acertos: 1
 Professor: a
 Aluno: a
 Avaliação: a
 ===============================
-Nível: nivel1
-Número de Acertos: 0
-Professor: t
-Aluno: g
-Avaliação: 445
+Nível: 1
+Número de Acertos: 1
+Professor: á
+Aluno: a
+Avaliação: a
 ===============================
-Nível: nivel1
-Número de Acertos: 2
-Professor: Abc
-Aluno: Def
-Avaliação: sdwertfdvcb
+Nível: 1
+Número de Acertos: 1
+Professor: á
+Aluno: á
+Avaliação: a
+===============================
+Nível: 1
+Número de Acertos: 1
+Professor: a
+Aluno: a
+Avaliação: á
+===============================
+Nível: 1
+Número de Acertos: 1
+Professor: Protégé
+Aluno: ASDFÉí
+Avaliação: áéíóú
+áéíóú

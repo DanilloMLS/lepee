@@ -16,6 +16,7 @@ import conteudo
 import apres_cont
 import tela_avaliacao
 from animated import animated_widget
+import tela_nivel
 
 class TelaEnsino(QtGui.QMainWindow):
     def __init__(self, parent=None, cam_cont_nivel='', palette=None):
@@ -23,7 +24,9 @@ class TelaEnsino(QtGui.QMainWindow):
         print "Entrou na Tela de Ensino"
         print cam_cont_nivel
         self.setParent(parent)
-                       
+        self.numCliqueVoltar = 1
+        self.telaNivel = tela_nivel.TelaNivel()
+        
         #Template da janela
         #os.sep = separador de diretorios do SO
         uic.loadUi(os.sep.join(["templates","tela_ensino.ui"]), self)
@@ -92,7 +95,13 @@ class TelaEnsino(QtGui.QMainWindow):
         self.close()
         
     def __voltar(self):
-        self.getApres_ops().carregar_conts(self.__conteudos)
+
+        if self.numCliqueVoltar <= 1:
+            self.getApres_ops().carregar_conts(self.__conteudos)
+            self.numCliqueVoltar += 1
+        else:
+            self.telaNivel.show()
+            self.close()
         
     def muda_ap_cont(self):
         '''

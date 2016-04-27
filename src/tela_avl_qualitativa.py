@@ -10,7 +10,7 @@ import avaliacao
 from PyQt4 import uic, QtCore, QtGui
 
 class TelaAvalQualitativa(QtGui.QMainWindow):
-    def __init__(self,nivel,numAcertos,parent=None):
+    def __init__(self,nivel="1",numAcertos="1",parent=None):
         super(TelaAvalQualitativa, self).__init__()
         uic.loadUi(os.sep.join(["templates","tela_avl_qualitativa.ui"]), self)
         #print nivel
@@ -28,9 +28,9 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
         self.salvarButton.clicked.connect(self.salvar_avaliacao)
 
     def salvar_avaliacao(self, e):
-        profe = str(self.profText.text().toUtf8()).decode('utf8')
-        aluno = str(self.alunoText.text().toUtf8()).decode('utf8')
-        aval = str(self.avalText.toPlainText())
+        profe = self.profText.text()
+        aluno = self.alunoText.text()
+        aval = self.avalText.toPlainText()
 
         arquivo = open("avaliacoes/avaliacao.txt","r")
         conteudo = arquivo.readlines()
@@ -60,6 +60,12 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
         '''
         arquivo.close()
         self.close()
+
+        self.a = tela_nivel.TelaNivel()
+        self.a.show()
+
+        self.close()
+
     
     def abre_tela_nivel(self, e):
         self.a = tela_nivel.TelaNivel()
@@ -67,9 +73,10 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
 
         self.close()
 
-'''
-root = QtGui.QApplication([])
-app = TelaAvalQualitativa()
-app.show()
-root.exec_()
-'''
+
+if __name__ == "__main__": 
+    root = QtGui.QApplication([])
+    app = TelaAvalQualitativa()
+    app.show()
+    root.exec_()
+

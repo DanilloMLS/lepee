@@ -40,15 +40,15 @@ def gerarQuestionario(nivel):
     q = []
     
     for pasta in pastas:
-        a = [1,2,3,4,5]
-        random.shuffle(a)
+        a = [1,2,3,4]
+        #random.shuffle(a)
         p = Pergunta("avaliacoes/"+nivel+"/"+pasta+"/vidperg",
                      "avaliacoes/"+nivel+"/"+pasta+"/alter"+str(a[0]),
                      "avaliacoes/"+nivel+"/"+pasta+"/alter"+str(a[1]),
                      "avaliacoes/"+nivel+"/"+pasta+"/alter"+str(a[2]),
                      "avaliacoes/"+nivel+"/"+pasta+"/alter"+str(a[3]),
-                     "avaliacoes/"+nivel+"/"+pasta+"/alter"+str(a[4]),
-                     "avaliacoes/"+nivel+"/"+pasta+"/alter3", nivel)
+                     "avaliacoes/"+nivel+"/"+pasta+"/alter3",
+                     nivel)
         questoes.append(p)
 
     random.shuffle(questoes)
