@@ -3,14 +3,15 @@ from PyQt4 import uic, QtCore, QtGui
 from animated import animated_widget
 
 class AnimatedMoveButton(QtGui.QPushButton):
-    def __init__(self, parent=None, name='', gifPath="icons//voltar.gif"):
+    def __init__(self, parent=None, gifPath="icons//voltar.gif", name=''):
         super(AnimatedMoveButton, self).__init__()
         self.setParent(parent)
 
-        self.movie = QtGui.QMovie(gifPath)
+        self.gifPath = gifPath #n
+        self.movie = QtGui.QMovie(self.gifPath) #m gifPath
         self.movie.stop()
 
-        pix = QtGui.QPixmap("icons//voltar.gif")
+        pix = QtGui.QPixmap(self.gifPath) #m "icons//voltar.gif"
         pix = pix.scaled(self.width(), self.height())
 
         self.setIcon(QtGui.QIcon(pix))
@@ -43,7 +44,7 @@ class AnimatedMoveButton(QtGui.QPushButton):
     def setGeometry(self, x, y, width, height):
         super(AnimatedMoveButton, self).setGeometry(x, y, width, height)
         print "Entrou set"
-        pix = QtGui.QPixmap("icons//voltar.gif")
+        pix = QtGui.QPixmap(self.gifPath) #m "icons//voltar.gif"
         pix = pix.scaled(self.width(), self.height())
 
         self.setIcon(QtGui.QIcon(pix))

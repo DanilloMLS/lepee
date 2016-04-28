@@ -14,7 +14,7 @@ from PyQt4 import *
 from animated_move_button import AnimatedMoveButton
 
 class TelaAvaliacao(QtGui.QMainWindow):
-    def __init__(self, nivel = "niveis\\nivel 1\\conts\\", Parent = None):
+    def __init__(self, nivel, Parent = None):
         super(TelaAvaliacao, self).__init__()
 
         uic.loadUi(os.sep.join(["templates","tela_avaliacao.ui"]), self)
@@ -22,15 +22,33 @@ class TelaAvaliacao(QtGui.QMainWindow):
 
         self.setMouseTracking(True)
 
+
+
+        #criação da avaliação
+        self.n = ''
+        if nivel == "niveis\\nivel 1\\conts\\":
+            self.n = "nivel1"
+        elif nivel == "niveis\\nivel 2\\conts\\":
+            self.n = "nivel2"
+        elif nivel == "niveis\\nivel 3\\conts\\":
+            self.n = "nivel3"
+        elif nivel == "niveis\\nivel 4\\conts\\":
+            self.n = "nivel4"
+        else:
+            self.n = "nivel5"
+        self.aval = Avaliacao(self.n)
+        self.q = []
+        self.q = avaliacao.gerarQuestionario(self.n)
+
         #botões das alternativas
         self.alter1Button = AnimatedMoveButton(self)
         self.alter2Button = AnimatedMoveButton(self)
         self.alter3Button = AnimatedMoveButton(self)
         self.alter4Button = AnimatedMoveButton(self)
-        self.alter1Button.setGeometry(70,470,191,171)
-        self.alter2Button.setGeometry(320,470,191,171)
-        self.alter3Button.setGeometry(570,470,191,171)
-        self.alter4Button.setGeometry(820,470,191,171)
+        self.alter1Button.setGeometry(70,410,191,171)
+        self.alter2Button.setGeometry(320,410,191,171)
+        self.alter3Button.setGeometry(570,410,191,171)
+        self.alter4Button.setGeometry(820,410,191,171)
         self.alter1Button.show()
         self.alter2Button.show()
         self.alter3Button.show()
@@ -49,25 +67,9 @@ class TelaAvaliacao(QtGui.QMainWindow):
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
 
-        #criação da avaliação
-        s = ''
-        if nivel == "niveis\\nivel 1\\conts\\":
-            s = "nivel1"
-        elif nivel == "niveis\\nivel 2\\conts\\":
-            s = "nivel2"
-        elif nivel == "niveis\\nivel 3\\conts\\":
-            s = "nivel3"
-        elif nivel == "niveis\\nivel 4\\conts\\":
-            s = "nivel4"
-        else:
-            s = "nivel5"
-        self.n = s
-        self.aval = Avaliacao(s)
-        self.q = []
-        self.q = avaliacao.gerarQuestionario(s)
-
         
         self.__player1.carregar(self.q[0].getPerg()+"\\apresentação1.avi")
+        
         self.alter1Button.clicked.connect(self.carregaAlternativa1)
         self.alter2Button.clicked.connect(self.carregaAlternativa2)
         self.alter3Button.clicked.connect(self.carregaAlternativa3)
@@ -78,24 +80,15 @@ class TelaAvaliacao(QtGui.QMainWindow):
     #carrega vídeos das alternativas
     def carregaAlternativa1(self, e):
         self.radioButton_1.setChecked(True)
-        if len(self.q) > 0:
-            self.__player1.carregar(self.q[0].getAlter1()+"\\apresentação1.avi")
 
     def carregaAlternativa2(self, e):
         self.radioButton_2.setChecked(True)
-        if len(self.q) > 0:
-            self.__player1.carregar(self.q[0].getAlter2()+"\\apresentação1.avi")
 
     def carregaAlternativa3(self, e):
         self.radioButton_3.setChecked(True)
-        if len(self.q) > 0:
-            self.__player1.carregar(self.q[0].getAlter3()+"\\apresentação1.avi")
 
     def carregaAlternativa4(self, e):
         self.radioButton_4.setChecked(True)
-        if len(self.q) > 0:
-            self.__player1.carregar(self.q[0].getAlter4()+"\\apresentação1.avi")
-
     
     def proxPerg(self, e):
         if self.radioButton_1.isChecked() or self.radioButton_2.isChecked() or self.radioButton_3.isChecked() or self.radioButton_4.isChecked():
