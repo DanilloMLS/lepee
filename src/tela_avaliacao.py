@@ -129,7 +129,7 @@ class TelaAvaliacao(QtGui.QMainWindow):
         print "aval"
         #btn.clicked.connect(lambda: self.__envia_nivel_selec(nivel, acertos))
         
-        self.tela = tela_avl_qualitativa.TelaAvalQualitativa(nivel,acertos)
+        self.tela = tela_avl_qualitativa.TelaAvalQualitativa(nivel,acertos, palette=self.palette())
         self.tela.show()
         self.close()
         

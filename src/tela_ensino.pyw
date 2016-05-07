@@ -24,7 +24,6 @@ class TelaEnsino(QtGui.QMainWindow):
         print "Entrou na Tela de Ensino"
         print cam_cont_nivel
         self.setParent(parent)
-        self.numCliqueVoltar = 1
         self.telaNivel = tela_nivel.TelaNivel()
         
         #Template da janela
@@ -72,11 +71,13 @@ class TelaEnsino(QtGui.QMainWindow):
         self.__conecta_event_btn(self.avalButton, cam_cont_nivel)
 
         #self.voltarButton.show()
-        self.voltarButton.clicked.connect(self.__voltar)
+        #self.voltarButton.clicked.connect(self.__voltar)
 
         self.voltarButton.setCursor(cursor)
         self.avalButton.setCursor(cursor)
-            
+
+
+        self.voltarButton.installEventFilter(self)        
 
     def __conecta_event_btn(self, btn, nivel):
         btn.clicked.connect(lambda: self.__envia_nivel_selec(nivel, btn))
@@ -93,16 +94,6 @@ class TelaEnsino(QtGui.QMainWindow):
         self.a.show()
 
         self.close()
-        
-    def __voltar(self):
-
-        if self.numCliqueVoltar <= 1:
-            self.getApres_ops().carregar_conts(self.__conteudos)
-            self.numCliqueVoltar += 1
-        else:
-            self.numCliqueVoltar -= 1
-            self.telaNivel.show()
-            self.close()
         
     def muda_ap_cont(self):
         '''
@@ -125,6 +116,18 @@ class TelaEnsino(QtGui.QMainWindow):
             retorna a área de apresentação atual
         '''
         return self.__apres_cont
+
+    def eventFilter(self, obj, event):
+
+        if event.type() == QtCore.QEvent.MouseButtonPress:
+            if event.button() == QtCore.Qt.LeftButton:
+                self.getApres_ops().carregar_conts(self.__conteudos)
+
+        elif event.type() == QtCore.QEvent.MouseButtonDblClick:
+            self.telaNivel.show()
+            self.close()
+
+        return super(TelaEnsino, self).eventFilter(obj, event)
     
     def resizeEvent(self, e):
         '''

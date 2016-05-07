@@ -38,14 +38,7 @@ class AnimatedMoveButton(QtGui.QPushButton):
         self.connect(self.movie, QtCore.SIGNAL("frameChanged(int)"), self.nextImage)
         self.connect(self.movie, QtCore.SIGNAL("finished()"), self.movie.stop)
 
-    def mouseMoveEvent (self, e):
-        if self.movie.state() == QtGui.QMovie.NotRunning: 
-            self.movie.start()
-        if self.movie.state() == QtGui.QMovie.Running and ((e.x() + 15 >= self.width() or e.y() + 15 >= self.height())or
-                                                           (e.x() <= 15 or e.y() <= 15)):
-            self.movie.stop()
-            
-
+        
     def setGeometry(self, x, y, width, height):
         super(AnimatedMoveButton, self).setGeometry(x, y, width, height)
         print "Entrou set"
@@ -55,6 +48,14 @@ class AnimatedMoveButton(QtGui.QPushButton):
         self.setIcon(QtGui.QIcon(pix))
         self.setIconSize(QtCore.QSize(pix.rect().width() * 0.9,
                            pix.rect().height() * 0.9))
+
+
+    def leaveEvent(self, event):
+        self.movie.stop()
+
+    def enterEvent(self, event):
+        self.movie.start()
+        
 
 if __name__ == "__main__":    
     root = QtGui.QApplication([])

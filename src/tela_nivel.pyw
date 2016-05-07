@@ -31,12 +31,14 @@ class TelaNivel(QtGui.QWidget):
     
         self.nivel1Button.setFlat(True)
         self.nivel1Button.setAutoFillBackground(True)
-        palette.setBrush(self.nivel1Button.backgroundRole(), QtGui.QBrush(QtGui.QPixmap("background\\violeta_lé'pée.png")))
+        palette.setBrush(self.nivel1Button.backgroundRole(),
+                         QtGui.QBrush(QtGui.QPixmap("background\\violeta_lé'pée.png")))
         self.nivel1Button.setPalette(palette)
         
         self.nivel2Button.setFlat(True)
         self.nivel2Button.setAutoFillBackground(True)
-        palette.setBrush(self.nivel2Button.backgroundRole(), QtGui.QBrush(QtGui.QPixmap("background\\verde_lé'pée.png")))
+        palette.setBrush(self.nivel2Button.backgroundRole(),
+                         QtGui.QBrush(QtGui.QPixmap("background\\verde_lé'pée.png")))
         self.nivel2Button.setPalette(palette)
         
         self.__conecta_event_btn(self.nivel1Button, "nivel 1")
@@ -44,15 +46,6 @@ class TelaNivel(QtGui.QWidget):
         self.__conecta_event_btn(self.nivel3Button, "nivel 3")
         self.__conecta_event_btn(self.nivel4Button, "nivel 4")
         self.__conecta_event_btn(self.nivel5Button, "nivel 5")
-
-        
-
-        '''for nivel in os.listdir("niveis"):
-            btn = QtGui.QPushButton(self)
-            btn.setGeometry(x, y, 151, 111)
-            self.__conecta_event_btn(btn, nivel)
-            btn.show()'''
-        
 
     def __conecta_event_btn(self, btn, nivel):
         #Relaciona um botão e um conteúdo a um evento 

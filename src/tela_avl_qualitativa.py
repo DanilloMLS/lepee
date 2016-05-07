@@ -10,11 +10,19 @@ import avaliacao
 from PyQt4 import uic, QtCore, QtGui
 
 class TelaAvalQualitativa(QtGui.QMainWindow):
-    def __init__(self,nivel="1",numAcertos="1",parent=None):
+    def __init__(self,nivel="1",numAcertos="1",parent=None, palette=None):
         super(TelaAvalQualitativa, self).__init__()
         uic.loadUi(os.sep.join(["templates","tela_avl_qualitativa.ui"]), self)
         #print nivel
         #print numAcertos
+
+
+        self.setAutoFillBackground(True)
+        img = QtGui.QPixmap(palette.button().texture())
+        img = img.scaled(QtCore.QSize(self.width(), self.height()))
+        palette.setBrush(palette.Background, QtGui.QBrush(img))
+        self.setPalette(palette)
+
         self.nivelLabel.setText(nivel)
         self.acertoLabel.setText(str(numAcertos))
         self.nivel = nivel
