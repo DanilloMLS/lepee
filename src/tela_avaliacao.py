@@ -14,7 +14,7 @@ from PyQt4 import *
 from animated_move_button import AnimatedMoveButton
 
 class TelaAvaliacao(QtGui.QMainWindow):
-    def __init__(self, nivel="niveis\\nivel 1\\conts\\", Parent = None):
+    def __init__(self, nivel="niveis\\nivel 1\\conts\\", Parent = None, palette=None):
         super(TelaAvaliacao, self).__init__()
 
         uic.loadUi(os.sep.join(["templates","tela_avaliacao.ui"]), self)
@@ -22,7 +22,11 @@ class TelaAvaliacao(QtGui.QMainWindow):
 
         self.setMouseTracking(True)
 
-
+        self.setAutoFillBackground(True)
+        img = QtGui.QPixmap(palette.button().texture())
+        img = img.scaled(QtCore.QSize(self.width(), self.height()))
+        palette.setBrush(palette.Background, QtGui.QBrush(img))
+        self.setPalette(palette)
 
         #criação da avaliação
         self.n = ''

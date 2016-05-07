@@ -83,7 +83,7 @@ class TelaEnsino(QtGui.QMainWindow):
         
     def __envia_nivel_selec(self, nivel, btn):
         #print os.sep.join(["niveis", nivel,"conts", ""]) # Para debug
-        self.tela = tela_avaliacao.TelaAvaliacao(nivel,nivel)
+        self.tela = tela_avaliacao.TelaAvaliacao(nivel,nivel, palette=self.palette())
 
         self.tela.show()
         self.close()
@@ -100,6 +100,7 @@ class TelaEnsino(QtGui.QMainWindow):
             self.getApres_ops().carregar_conts(self.__conteudos)
             self.numCliqueVoltar += 1
         else:
+            self.numCliqueVoltar -= 1
             self.telaNivel.show()
             self.close()
         
