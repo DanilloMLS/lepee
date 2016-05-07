@@ -14,7 +14,7 @@ from PyQt4 import *
 from animated_move_button import AnimatedMoveButton
 
 class TelaAvaliacao(QtGui.QMainWindow):
-    def __init__(self, nivel, Parent = None):
+    def __init__(self, nivel="niveis\\nivel 1\\conts\\", Parent = None):
         super(TelaAvaliacao, self).__init__()
 
         uic.loadUi(os.sep.join(["templates","tela_avaliacao.ui"]), self)
@@ -41,10 +41,10 @@ class TelaAvaliacao(QtGui.QMainWindow):
         self.q = avaliacao.gerarQuestionario(self.n)
 
         #botões das alternativas
-        self.alter1Button = AnimatedMoveButton(self)
-        self.alter2Button = AnimatedMoveButton(self)
-        self.alter3Button = AnimatedMoveButton(self)
-        self.alter4Button = AnimatedMoveButton(self)
+        self.alter1Button = AnimatedMoveButton(self, "icons\\parar.gif")
+        self.alter2Button = AnimatedMoveButton(self, "icons\\parar.gif")
+        self.alter3Button = AnimatedMoveButton(self, "icons\\parar.gif")
+        self.alter4Button = AnimatedMoveButton(self, "icons\\parar.gif")
         self.alter1Button.setGeometry(70,410,191,171)
         self.alter2Button.setGeometry(320,410,191,171)
         self.alter3Button.setGeometry(570,410,191,171)

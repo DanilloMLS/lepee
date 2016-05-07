@@ -37,7 +37,8 @@ class AnimatedMoveButton(QtGui.QPushButton):
         if self.movie.state() == QtGui.QMovie.NotRunning: 
             self.movie.start()
             self.moveu = True
-        if self.movie.state() == QtGui.QMovie.Running and ((e.x() + 5 >= self.width() or e.y() + 5 >= self.height())or(e.x() <= 5 or e.y() <= 5)):
+        if self.movie.state() == QtGui.QMovie.Running and ((e.x() + 15 >= self.width() or e.y() + 15 >= self.height())or
+                                                           (e.x() <= 15 or e.y() <= 15)):
             self.movie.stop()
             self.moveu = False
 
