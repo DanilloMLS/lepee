@@ -7,20 +7,14 @@ class AnimatedMoveButton(QtGui.QPushButton):
         super(AnimatedMoveButton, self).__init__()
         self.setParent(parent)
 
-        self.gifPath = gifPath #n
-        self.movie = QtGui.QMovie(self.gifPath) #m gifPath
-        self.movie.stop()
+        cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
 
-        pix = QtGui.QPixmap(self.gifPath) #m "icons//voltar.gif"
-        pix = pix.scaled(self.width(), self.height())
-
-        self.setIcon(QtGui.QIcon(pix))
-       
+        self.setCursor(cursor)
+        
+        self.gifPath = ""
+        self.movie = QtGui.QMovie() #m gifPath
         self.setMouseTracking(True)
-        self.moveu = False
-
-        self.connect(self.movie, QtCore.SIGNAL("frameChanged(int)"), self.nextImage)
-        self.connect(self.movie, QtCore.SIGNAL("finished()"), self.movie.stop)
+        self.setGif(gifPath)
 
     def nextImage(self):
 
@@ -31,16 +25,26 @@ class AnimatedMoveButton(QtGui.QPushButton):
         self.setIconSize(QtCore.QSize(pix.rect().width() * 0.9,
                            pix.rect().height() * 0.9))
 
-                
+    def setGif(self, gifPath):
+        self.gifPath = gifPath
+        self.movie.setFileName(self.gifPath)
+        self.movie.stop()
+
+        pix = QtGui.QPixmap(self.gifPath) #m "icons//voltar.gif"
+        pix = pix.scaled(self.width(), self.height())
+
+        self.setIcon(QtGui.QIcon(pix))
+       
+        self.connect(self.movie, QtCore.SIGNAL("frameChanged(int)"), self.nextImage)
+        self.connect(self.movie, QtCore.SIGNAL("finished()"), self.movie.stop)
 
     def mouseMoveEvent (self, e):
         if self.movie.state() == QtGui.QMovie.NotRunning: 
             self.movie.start()
-            self.moveu = True
         if self.movie.state() == QtGui.QMovie.Running and ((e.x() + 15 >= self.width() or e.y() + 15 >= self.height())or
                                                            (e.x() <= 15 or e.y() <= 15)):
             self.movie.stop()
-            self.moveu = False
+            
 
     def setGeometry(self, x, y, width, height):
         super(AnimatedMoveButton, self).setGeometry(x, y, width, height)
