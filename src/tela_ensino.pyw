@@ -74,6 +74,8 @@ class TelaEnsino(QtGui.QMainWindow):
         #self.voltarButton.clicked.connect(self.__voltar)
 
         self.voltarButton.setCursor(cursor)
+        self.avalButton.setIcon(QtGui.QIcon('icons\\avaliacao.png'))
+        self.avalButton.setIconSize(QtCore.QSize(55, 100))
         self.avalButton.setCursor(cursor)
 
 

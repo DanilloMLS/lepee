@@ -45,10 +45,10 @@ class TelaAvaliacao(QtGui.QMainWindow):
         self.q = avaliacao.gerarQuestionario(self.n)
 
         #botões das alternativas
-        self.alter1Button = AnimatedMoveButton(self, "icons\\parar.gif")
-        self.alter2Button = AnimatedMoveButton(self, "icons\\parar.gif")
-        self.alter3Button = AnimatedMoveButton(self, "icons\\parar.gif")
-        self.alter4Button = AnimatedMoveButton(self, "icons\\parar.gif")
+        self.alter1Button = AnimatedMoveButton(self, self.q[0].getAlter1()+"\\apresentação1.gif")
+        self.alter2Button = AnimatedMoveButton(self, self.q[0].getAlter2()+"\\apresentação1.gif")
+        self.alter3Button = AnimatedMoveButton(self, self.q[0].getAlter3()+"\\apresentação1.gif")
+        self.alter4Button = AnimatedMoveButton(self, self.q[0].getAlter4()+"\\apresentação1.gif")
         self.alter1Button.setGeometry(70,410,191,171)
         self.alter2Button.setGeometry(320,410,191,171)
         self.alter3Button.setGeometry(570,410,191,171)
@@ -120,6 +120,11 @@ class TelaAvaliacao(QtGui.QMainWindow):
             if len(self.q) > 1:
                 self.q.pop(0)
                 self.__player1.carregar(self.q[0].getPerg()+"\\apresentação1.avi")
+                self.alter1Button.setGif(self.q[0].getAlter1()+"\\apresentação1.gif")
+                self.alter2Button.setGif(self.q[0].getAlter2()+"\\apresentação1.gif")
+                self.alter3Button.setGif(self.q[0].getAlter3()+"\\apresentação1.gif")
+                self.alter4Button.setGif(self.q[0].getAlter4()+"\\apresentação1.gif")
+
             else:
                 #self.q.pop(0)
                 print "aval"
