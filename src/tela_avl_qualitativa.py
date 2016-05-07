@@ -23,6 +23,12 @@ class TelaAvalQualitativa(QtGui.QMainWindow):
         palette.setBrush(palette.Background, QtGui.QBrush(img))
         self.setPalette(palette)
 
+        self.profText.setStyleSheet("QLineEdit {font-size: 10pt; font-family: Arial; color: black}")
+        self.alunoText.setStyleSheet("QLineEdit {font-size: 10pt; font-family: Arial; color: black}")
+        self.avalText.setStyleSheet("QTextEdit {font-size: 10pt; font-family: Arial; color: black}")
+        self.salvarButton.setStyleSheet("QPushButton {font-size: 10pt; font-family: Arial; color: black}")
+        #self.profText.setStyleSheet("QLineEdit {color: blue}")
+
         self.nivelLabel.setText(nivel)
         self.acertoLabel.setText(str(numAcertos))
         self.nivel = nivel

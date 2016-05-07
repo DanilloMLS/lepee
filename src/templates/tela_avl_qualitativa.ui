@@ -36,6 +36,12 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
    <widget class="QLineEdit" name="alunoText">
     <property name="geometry">
@@ -46,6 +52,12 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
    <widget class="QTextEdit" name="avalText">
     <property name="geometry">
@@ -55,6 +67,9 @@
       <width>391</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Arial&quot;;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
