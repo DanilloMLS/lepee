@@ -38,3 +38,21 @@ Aluno: Def
 Avaliação: a: 5
 b: 16
 Ótimo
+===============================
+Nível: nivel1
+Número de Acertos: 0
+Professor: ÁSD
+Aluno: asd
+Avaliação: asdafgafdght@#$Áètps://www.facebook.co
+===============================
+Nível: nivel1
+Número de Acertos: 2
+Professor: Á&ü
+Aluno: èõ
+Avaliação: 123457¨&*
+===============================
+Nível: nivel1
+Número de Acertos: 4
+Professor: ABC
+Aluno: abc
+Avaliação: sasd
