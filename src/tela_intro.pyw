@@ -33,7 +33,7 @@ class TelaIntro(QtGui.QMainWindow):
 
         palette = QtGui.QPalette()
         self.setAutoFillBackground(True)
-        img = QtGui.QPixmap("background\\cinza.png")
+        img = QtGui.QPixmap("background\\introducao.jpg")
         img = img.scaled(QtCore.QSize(self.width(), self.height()))
         palette.setBrush(palette.Background, QtGui.QBrush(img))
         self.setPalette(palette)
