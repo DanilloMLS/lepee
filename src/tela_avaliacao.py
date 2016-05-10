@@ -28,6 +28,8 @@ class TelaAvaliacao(QtGui.QMainWindow):
         palette.setBrush(palette.Background, QtGui.QBrush(img))
         self.setPalette(palette)
 
+        cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
+
         #criação da avaliação
         self.n = ''
         if nivel == "niveis\\nivel 1\\conts\\":
@@ -56,7 +58,11 @@ class TelaAvaliacao(QtGui.QMainWindow):
         self.alter1Button.show()
         self.alter2Button.show()
         self.alter3Button.show()
-        self.alter4Button.show()        
+        self.alter4Button.show()
+        self.alter1Button.setCursor(cursor)
+        self.alter2Button.setCursor(cursor)
+        self.alter3Button.setCursor(cursor)
+        self.alter4Button.setCursor(cursor)
 
         #radio buttons
         self.group = QtGui.QButtonGroup()
@@ -71,6 +77,9 @@ class TelaAvaliacao(QtGui.QMainWindow):
         self.setMinimumHeight(self.height())
         self.setMinimumWidth(self.width())
 
+        self.proxPergButton.setIcon(QtGui.QIcon('icons\\arrow.png'))
+        self.proxPergButton.setIconSize(QtCore.QSize(55, 55))
+        self.proxPergButton.setCursor(cursor)
         
         self.__player1.carregar(self.q[0].getPerg()+"\\apresentação1.avi")
         

@@ -52,8 +52,8 @@ def gerarQuestionario(nivel):
         questoes.append(p)
 
     random.shuffle(questoes)
-    while(len(questoes) > 5):
-        questoes.pop()
+    #while(len(questoes) > 5):
+    #    questoes.pop()
 
     return questoes
 
