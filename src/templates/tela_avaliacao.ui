@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Tela Avaliação Quatitativa LEPE</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/logo lepe.png</normaloff>../icons/logo lepe.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="proxPergButton">

@@ -23,23 +23,50 @@ class TelaNivel(QtGui.QWidget):
         palette	= QtGui.QPalette()
         cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
 
+        
+        self.setAutoFillBackground(True)
+        palette.setBrush(self.backgroundRole(),
+                         QtGui.QBrush(QtGui.QPixmap("background\\cinza.png").scaled(self.width(), self.height())))
+        self.setPalette(palette)
+
         self.nivel1Button.setCursor(cursor)
         self.nivel2Button.setCursor(cursor)
         self.nivel3Button.setCursor(cursor)
         self.nivel4Button.setCursor(cursor)
         self.nivel5Button.setCursor(cursor)
+
+        h = self.nivel1Button.height()
+        w = self.nivel1Button.width()
     
         self.nivel1Button.setFlat(True)
         self.nivel1Button.setAutoFillBackground(True)
         palette.setBrush(self.nivel1Button.backgroundRole(),
-                         QtGui.QBrush(QtGui.QPixmap("background\\violeta_lé'pée.png")))
+                         QtGui.QBrush(QtGui.QPixmap("background\\violeta.png").scaled(w, h)))
         self.nivel1Button.setPalette(palette)
         
         self.nivel2Button.setFlat(True)
         self.nivel2Button.setAutoFillBackground(True)
         palette.setBrush(self.nivel2Button.backgroundRole(),
-                         QtGui.QBrush(QtGui.QPixmap("background\\verde_lé'pée.png")))
+                         QtGui.QBrush(QtGui.QPixmap("background\\verde.png").scaled(w, h)))
         self.nivel2Button.setPalette(palette)
+
+        self.nivel3Button.setFlat(True)
+        self.nivel3Button.setAutoFillBackground(True)
+        palette.setBrush(self.nivel3Button.backgroundRole(),
+                         QtGui.QBrush(QtGui.QPixmap("background\\azul.png").scaled(w, h)))
+        self.nivel3Button.setPalette(palette)
+
+        self.nivel4Button.setFlat(True)
+        self.nivel4Button.setAutoFillBackground(True)
+        palette.setBrush(self.nivel4Button.backgroundRole(),
+                         QtGui.QBrush(QtGui.QPixmap("background\\laranja.png").scaled(w, h)))
+        self.nivel4Button.setPalette(palette)
+
+        self.nivel5Button.setFlat(True)
+        self.nivel5Button.setAutoFillBackground(True)
+        palette.setBrush(self.nivel5Button.backgroundRole(),
+                         QtGui.QBrush(QtGui.QPixmap("background\\marrom.png").scaled(w, h)))
+        self.nivel5Button.setPalette(palette)
         
         self.__conecta_event_btn(self.nivel1Button, "nivel 1")
         self.__conecta_event_btn(self.nivel2Button, "nivel 2")

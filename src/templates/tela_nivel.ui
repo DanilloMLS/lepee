@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Tela de Nível</string>
+   <string>Tela de Seleção de Nível LEPE</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/logo lepe.png</normaloff>../icons/logo lepe.png</iconset>
   </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">

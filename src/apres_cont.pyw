@@ -19,8 +19,10 @@ class ApresCont(QtGui.QWidget):
         self.setParent(toplevel)
         self.__player = Player(self.videoWidget) #videoWidget é o contenier do template destinado a armazenar o player
         self.__cont_exibido = conteudo
-        #self.__player.move(0, 40)
 
+        
+        #self.__player.move(0, 40)
+        
         '''self.setAutoFillBackground(True)
         img = QtGui.QPixmap(palette.button().texture())
         img = img.scaled(QtCore.QSize(self.width(), self.height()))

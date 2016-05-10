@@ -106,6 +106,7 @@ class Player(QtGui.QWidget):
             self.playIlustrativoButton.show()
             self.reprVideo.load(cam_midia)
             self.__video_atual = cam_video
+
         else:
             raise ValueError('Caminho especificado não existe!') 
 

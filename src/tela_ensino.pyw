@@ -103,6 +103,8 @@ class TelaEnsino(QtGui.QMainWindow):
         '''
         if self.getApres_cont().isHidden():
             self.getApres_cont().show()
+            self.getApres_cont().update()
+            
         self.getApres_cont().apresent(self.getApres_ops().getCont_atual())
 
     def getApres_ops(self):

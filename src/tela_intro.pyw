@@ -11,6 +11,7 @@
     Versão do PyQt: 4.8
 '''
 import os
+import time
 from PyQt4 import QtGui, QtCore, uic
 from animated import animated_widget
 import tela_nivel
@@ -29,9 +30,16 @@ class TelaIntro(QtGui.QMainWindow):
         self.alunoButton.setGeometry(self.alunoButton.x(), self.alunoButton.y(), 251, 200)
         self.alunoButton.setCursor(cursor)
         self.alunoButton.show()'''
+
+        palette = QtGui.QPalette()
+        self.setAutoFillBackground(True)
+        img = QtGui.QPixmap("background\\cinza.png")
+        img = img.scaled(QtCore.QSize(self.width(), self.height()))
+        palette.setBrush(palette.Background, QtGui.QBrush(img))
+        self.setPalette(palette)
         
         animated_widget(self.profButton, dir_icons + 'parar.gif')
-        self.profButton.setGeometry(self.profButton.x(), self.profButton.y(), 251, 200)
+        #self.profButton.setGeometry(self.profButton.x(), self.profButton.y(), 251, 200)
         self.profButton.setCursor(cursor)
         self.profButton.show()
     
@@ -69,13 +77,20 @@ class TelaIntro(QtGui.QMainWindow):
 
 if __name__ == "__main__":        
     root = QtGui.QApplication([])
+    
+    splash_pix = QtGui.QPixmap("background\\abertura.png")
+    splash = QtGui.QSplashScreen(splash_pix, QtCore.Qt.WindowStaysOnTopHint)
+    
+    splash.setMask(splash_pix.mask())
+    splash.show()
+    root.processEvents()
+
+    time.sleep(4)
+    
     app = TelaIntro()
+    splash.finish(app)
     app.show()
+    
     root.exec_()
 
         
-root = QtGui.QApplication([])
-app = TelaIntro()
-app.show()
-root.exec_()
-

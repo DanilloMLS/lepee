@@ -17,11 +17,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Tela de Aprendizagem</string>
+   <string>Tela de Aprendizagem LEPE</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../Fagner/.designer/icon.png</normaloff>../../../../Fagner/.designer/icon.png</iconset>
+    <normaloff>../icons/logo lepe.png</normaloff>../icons/logo lepe.png</iconset>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>

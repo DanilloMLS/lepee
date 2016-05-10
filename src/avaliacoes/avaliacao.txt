@@ -38,3 +38,9 @@ Aluno: Def
 Avaliação: a: 5
 b: 16
 Ótimo
+===============================
+Nível: nivel1
+Número de Acertos: 0
+Professor: 
+Aluno: 
+Avaliação: 
