@@ -78,7 +78,7 @@ class TelaAvaliacao(QtGui.QMainWindow):
         self.setMinimumWidth(self.width())
 
         self.proxPergButton.setIcon(QtGui.QIcon('icons\\avançar2.jpg'))
-        self.proxPergButton.setIconSize(QtCore.QSize(70, 70))
+        self.proxPergButton.setIconSize(QtCore.QSize(95, 95))
         self.proxPergButton.setCursor(cursor)
         
         self.__player1.carregar(self.q[0].getPerg()+"\\apresentação1.avi")

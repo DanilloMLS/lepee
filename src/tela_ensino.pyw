@@ -35,7 +35,7 @@ class TelaEnsino(QtGui.QMainWindow):
         #Cria um botão com um gif animado para indicar a volta ao menu inicial
         #animated_widget(self.voltarButton,os.sep.join(['icons','voltar.gif']))
         self.voltarButton.setIcon(QtGui.QIcon('icons\\voltar.jpg'))
-        self.voltarButton.setIconSize(QtCore.QSize(120,200))
+        self.voltarButton.setIconSize(QtCore.QSize(135,210))
         
         #Cria as áres de menu e apresentação de conteúdo
         self.__apres_ops = apres_ops.ApresOps(self.menuWidget)

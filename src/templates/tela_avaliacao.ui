@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Tela Avaliação Quatitativa LEPE</string>
+   <string>Tela Avaliação Quatitativa LEPÊ</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -21,10 +21,10 @@
    <widget class="QPushButton" name="proxPergButton">
     <property name="geometry">
      <rect>
-      <x>950</x>
-      <y>610</y>
-      <width>81</width>
-      <height>61</height>
+      <x>930</x>
+      <y>590</y>
+      <width>101</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">

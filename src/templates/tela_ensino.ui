@@ -13,11 +13,11 @@
     <x>0</x>
     <y>0</y>
     <width>946</width>
-    <height>668</height>
+    <height>684</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Tela de Aprendizagem LEPE</string>
+   <string>Tela de Aprendizagem LEPÊ</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -68,7 +68,7 @@
          <x>0</x>
          <y>560</y>
          <width>211</width>
-         <height>71</height>
+         <height>91</height>
         </rect>
        </property>
        <property name="styleSheet">
