@@ -38,12 +38,16 @@ class Player(QtGui.QWidget):
         
         self.progressoSlider.setMediaObject(self.reprVideo.mediaObject())
 
-        animated_widget(self.playButton, dir_icons + 'play.gif')
+        #animated_widget(self.playButton, dir_icons + 'play.gif')
+        self.playButton.setIcon(QtGui.QIcon('icons\\play.jpg'))
+        self.playButton.setIconSize(QtCore.QSize(40,80))
         #self.playButton.setGeometry(0, 0, 80, 60)
         self.playButton.clicked.connect(self.play)
         self.playIlustrativoButton.clicked.connect(self.play)
 
-        animated_widget(self.pauseButton, dir_icons + 'parar.gif')
+        self.pauseButton.setIcon(QtGui.QIcon('icons\\parar1.jpg'))
+        self.pauseButton.setIconSize(QtCore.QSize(40,80))
+        #animated_widget(self.pauseButton, dir_icons + 'parar.gif')
         #self.pauseButton.setGeometry(80, 0, 80, 60)
         self.pauseButton.clicked.connect(self.pause)
 

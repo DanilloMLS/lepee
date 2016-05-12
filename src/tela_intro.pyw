@@ -37,8 +37,10 @@ class TelaIntro(QtGui.QMainWindow):
         img = img.scaled(QtCore.QSize(self.width(), self.height()))
         palette.setBrush(palette.Background, QtGui.QBrush(img))
         self.setPalette(palette)
-        
-        animated_widget(self.profButton, dir_icons + 'parar.gif')
+
+        self.profButton.setIcon(QtGui.QIcon('icons\\Viviane.jpg'))
+        self.profButton.setIconSize(QtCore.QSize(140,170))
+        #animated_widget(self.profButton, dir_icons + 'parar.gif')
         #self.profButton.setGeometry(self.profButton.x(), self.profButton.y(), 251, 200)
         self.profButton.setCursor(cursor)
         self.profButton.show()

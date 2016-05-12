@@ -86,7 +86,7 @@ class ApresOps(object):
                 btn = QtGui.QPushButton('')
                 btn.setToolTip(cont.getTitulo())
                 btn.setIcon(QtGui.QIcon(cont.getCam_img()))
-                btn.setIconSize(QtCore.QSize(100, 100))
+                btn.setIconSize(QtCore.QSize(150, 100))
                 btn.setCursor(cursor)
                 self.__conecta_event_btn(btn, cont) #Conecta o botão a um evento de clique
                 layout.addWidget(btn)
