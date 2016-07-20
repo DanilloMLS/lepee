@@ -16,6 +16,7 @@ from PyQt4 import QtGui, QtCore, uic
 from animated import animated_widget
 import tela_nivel
 import tela_login
+import ajudaMenuInicial
 
 class TelaIntro(QtGui.QMainWindow):
     def __init__(self,parent=None):
@@ -57,6 +58,13 @@ class TelaIntro(QtGui.QMainWindow):
 
         #self.alunoButton.clicked.connect(self.abre_tela_nivelEvent)
         self.profButton.clicked.connect(self.abre_tela_login)
+
+        self.ajudaBt.setCursor(cursor)
+        self.ajudaBt.clicked.connect(self.ajuda)
+
+    def ajuda(self,e):
+        self.a = ajudaMenuInicial.TelaAjuda()
+        self.a.show()
         
     def abre_tela_nivelEvent(self, e):
         self.a = tela_nivel.TelaNivel()

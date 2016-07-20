@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>633</width>
+    <height>611</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Ajuda - Tutoriais</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="voltarBt">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>560</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Voltar</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="tutorialWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>551</width>
+      <height>401</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tutorial1Bt">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>440</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Escolhendo
+um nível</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/arrow.png</normaloff>../icons/arrow.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tutorial2Bt">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>440</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Avaliação 
+Quantitativa</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/arrow.png</normaloff>../icons/arrow.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tutorial3Bt">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>440</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Avaliação
+Qualitativa</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/arrow.png</normaloff>../icons/arrow.png</iconset>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
