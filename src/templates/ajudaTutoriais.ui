@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>633</width>
-    <height>611</height>
+    <width>738</width>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,16 @@
    <widget class="QPushButton" name="voltarBt">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>620</x>
       <y>560</y>
-      <width>75</width>
-      <height>23</height>
+      <width>111</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Voltar</string>
@@ -30,8 +35,8 @@
    <widget class="QWidget" name="tutorialWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
+      <x>90</x>
+      <y>60</y>
       <width>551</width>
       <height>401</height>
      </rect>
@@ -40,8 +45,8 @@
    <widget class="QPushButton" name="tutorial1Bt">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>440</y>
+      <x>90</x>
+      <y>470</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -63,8 +68,8 @@ um nível</string>
    <widget class="QPushButton" name="tutorial2Bt">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>440</y>
+      <x>280</x>
+      <y>470</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -86,8 +91,8 @@ Quantitativa</string>
    <widget class="QPushButton" name="tutorial3Bt">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>440</y>
+      <x>470</x>
+      <y>470</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -104,6 +109,25 @@ Qualitativa</string>
     <property name="icon">
      <iconset>
       <normaloff>../icons/arrow.png</normaloff>../icons/arrow.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sobreBt">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>10</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Sobre
+o LEPÊ</string>
     </property>
    </widget>
   </widget>
