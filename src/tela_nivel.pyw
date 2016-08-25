@@ -11,9 +11,10 @@
 '''
 
 import os
+import ajudaMenuInicial
+import ajudaTutoriais
 from PyQt4 import QtGui, QtCore, uic
 import tela_ensino
-import ajudaMenuInicial
 
 class TelaNivel(QtGui.QWidget):
     def __init__(self):
@@ -35,6 +36,7 @@ class TelaNivel(QtGui.QWidget):
         self.nivel3Button.setCursor(cursor)
         self.nivel4Button.setCursor(cursor)
         self.nivel5Button.setCursor(cursor)
+        self.ajudaBt.setCursor(cursor)
 
         h = self.nivel1Button.height()
         w = self.nivel1Button.width()
@@ -77,9 +79,9 @@ class TelaNivel(QtGui.QWidget):
         self.ajudaBt.clicked.connect(self.ajuda)
 
     def ajuda(self,e):
-        self.a = ajudaMenuInicial.TelaAjuda()
+        self.a = ajudaTutoriais.TelaAjudaTutoriais()
         self.a.show()
-
+        
     def __conecta_event_btn(self, btn, nivel):
         #Relaciona um botão e um conteúdo a um evento 
         btn.clicked.connect(lambda: self.__envia_nivel_selec(nivel, btn))
