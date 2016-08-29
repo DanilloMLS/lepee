@@ -11,7 +11,6 @@
 '''
 
 import os
-import ajudaMenuInicial
 import ajudaTutoriais
 from PyQt4 import QtGui, QtCore, uic
 import tela_ensino

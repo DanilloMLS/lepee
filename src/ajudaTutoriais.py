@@ -1,6 +1,5 @@
 import sys
 import os
-import ajudaMenuInicial
 from player import Player
 from PyQt4 import QtGui, Qt, uic
 
@@ -32,8 +31,8 @@ class TelaAjudaTutoriais(QtGui.QMainWindow):
         self.__player1.carregar("ajuda\\tutorial3.avi") 
     
     def voltar(self,e):
-        self.a = ajudaMenuInicial.TelaAjuda()
-        self.a.show()
+        #self.a = ajudaMenuInicial.TelaAjuda()
+        #self.a.show()
         self.close()
 
     
