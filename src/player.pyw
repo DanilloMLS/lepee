@@ -12,9 +12,15 @@
 
 #importações necessárias para execução do módulo
 import os
-from PyQt4 import uic, QtGui, QtCore
+from PyQt4 import QtGui, QtCore
 from PyQt4 import phonon
 from animated import animated_widget
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
 
 class Player(QtGui.QWidget):
     '''
@@ -26,9 +32,114 @@ class Player(QtGui.QWidget):
         self.setParent(toplevel)
 
         dir_icons = 'icons' + os.sep
+
+        ###############################################################
+
+        self.setObjectName(_fromUtf8("self"))
+        self.resize(551, 371)
+        self.setStyleSheet(_fromUtf8(""))
+
+        self.reprVideo = phonon.Phonon.VideoPlayer(self)
+        self.reprVideo.setGeometry(QtCore.QRect(6, 8, 541, 311))
+        self.reprVideo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.reprVideo.setMouseTracking(True)
+        self.reprVideo.setStyleSheet(_fromUtf8("background-color: rgb(0, 0, 0);"))
+        self.reprVideo.setObjectName(_fromUtf8("reprVideo"))
+
+        self.controlSplitter = QtGui.QSplitter(self)
+        self.controlSplitter.setGeometry(QtCore.QRect(140, 320, 411, 51))
+        self.controlSplitter.setMouseTracking(True)
+        self.controlSplitter.setOrientation(QtCore.Qt.Horizontal)
+        self.controlSplitter.setObjectName(_fromUtf8("controlSplitter"))
+
+        self.progrWidget = QtGui.QWidget(self.controlSplitter)
+        self.progrWidget.setStyleSheet(_fromUtf8("background-color: rgb(63, 63, 63);"))
+        self.progrWidget.setObjectName(_fromUtf8("progrWidget"))
+
+        self.gridLayout = QtGui.QGridLayout(self.progrWidget)
+        self.gridLayout.setMargin(0)
+        self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+
+        self.tempoLabel = QtGui.QLabel(self.progrWidget)
+        self.tempoLabel.setEnabled(True)
+
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Arial"))
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+
+        self.tempoLabel.setFont(font)
+        self.tempoLabel.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
+        self.tempoLabel.setObjectName(_fromUtf8("tempoLabel"))
+
+        self.gridLayout.addWidget(self.tempoLabel, 1, 1, 1, 1)
+
+        self.progressoSlider = phonon.Phonon.SeekSlider(self.progrWidget)
+        self.progressoSlider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.progressoSlider.setMouseTracking(False)
+        self.progressoSlider.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.progressoSlider.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.progressoSlider.setStyleSheet(_fromUtf8(""))
+        self.progressoSlider.setIconVisible(False)
+
+        self.progressoSlider.setObjectName(_fromUtf8("progressoSlider"))
+        self.gridLayout.addWidget(self.progressoSlider, 0, 0, 1, 2)
+        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
+
+        self.volumeSlider = phonon.Phonon.VolumeSlider(self)
+        self.volumeSlider.setGeometry(QtCore.QRect(490, 400, 109, 22))
+        self.volumeSlider.setObjectName(_fromUtf8("volumeSlider"))
+
+        self.horizontalWidget = QtGui.QWidget(self)
+        self.horizontalWidget.setGeometry(QtCore.QRect(2, 320, 141, 51))
+        self.horizontalWidget.setStyleSheet(_fromUtf8("background-color: rgb(63, 63, 63);"))
+        self.horizontalWidget.setObjectName(_fromUtf8("horizontalWidget"))
+        self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalWidget)
+        self.horizontalLayout.setMargin(0)
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+
+        self.playButton = QtGui.QPushButton(self.horizontalWidget)
+        self.playButton.setStyleSheet(_fromUtf8(""))
+        self.playButton.setText(_fromUtf8(""))
+        self.playButton.setObjectName(_fromUtf8("playButton"))
+
+        self.horizontalLayout.addWidget(self.playButton)
+
+        self.pauseButton = QtGui.QPushButton(self.horizontalWidget)
+        self.pauseButton.setStyleSheet(_fromUtf8(""))
+        self.pauseButton.setText(_fromUtf8(""))
+        self.pauseButton.setObjectName(_fromUtf8("pauseButton"))
+
+        self.horizontalLayout.addWidget(self.pauseButton)
+
+        self.playIlustrativoButton = QtGui.QPushButton(self)
+        self.playIlustrativoButton.setGeometry(QtCore.QRect(220, 130, 111, 71))
+        self.playIlustrativoButton.setText(_fromUtf8(""))
+
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("icons\\play.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+
+        self.playIlustrativoButton.setIcon(icon)
+        self.playIlustrativoButton.setIconSize(QtCore.QSize(500, 500))
+        self.playIlustrativoButton.setObjectName(_fromUtf8("playIlustrativoButton"))
+
+        self.setStyleSheet(_fromUtf8("background-color: rgb(63, 63, 63);"))
+        self.setWindowTitle("Player")
+        self.reprVideo.setToolTip("Play")
+        self.tempoLabel.setText(' 00:00:00/00:00:00 ')
+
+        #self.progressoSlider.setToolTip(_translate("playerWidget", "Progresso do video", None))
+        self.playButton.setToolTip('Play')
+        self.pauseButton.setToolTip('Pause')
+
+
+            
+        ###############################################################
         
         #Layout do player
-	uic.loadUi("templates" + os.sep + "player.ui", self)
+	#uic.loadUi("templates" + os.sep + "player.ui", self)
         
         cursor = QtGui.QCursor(QtGui.QPixmap('icons\\pointingHand.png'))
 	
@@ -128,8 +239,10 @@ class Player(QtGui.QWidget):
         if self.isCarregado() and not self.reprVideo.isPlaying():
             print "Entrou no play"
             self.playIlustrativoButton.setHidden(True)
+            self.reprVideo.setToolTip("Pause")
             self.reprVideo.play()
             self.__tempo.start()
+            
 
     def pause(self):
         '''
@@ -138,6 +251,7 @@ class Player(QtGui.QWidget):
         if self.isCarregado() and  self.reprVideo.isPlaying():
             print "Entrou no pause"
             self.playIlustrativoButton.show()
+            self.reprVideo.setToolTip("Play")
             self.reprVideo.pause()
             self.__tempo.stop()
 
@@ -183,10 +297,10 @@ class Player(QtGui.QWidget):
             Destrói os objetos na janela principal quando está for fechada
         '''
         self.deleteLater()
-    
 
-'''root = QtGui.QApplication([])
-app = Player()
-app.show()
-app.carregar('conteudos\\cadeira\\video\\Nirvana MTV Unplugged in New York.mp4')
-root.exec_()'''
+if __name__=='__main__':
+    root = QtGui.QApplication([])
+    app = Player(None)
+    app.show()
+    app.carregar('niveis\\nivel 1\\conts\\Cores\\video\\1- CORES ok.avi')
+    root.exec_()

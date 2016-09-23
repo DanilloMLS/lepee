@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "tela_nivel.pyc", line 106, in <lambda>
-  File "tela_nivel.pyc", line 112, in __envia_nivel_selec
-  File "tela_ensino.pyc", line 110, in __init__
-  File "conteudo.pyc", line 100, in getLista_conts
-ValueError: Diretorio não encontrado

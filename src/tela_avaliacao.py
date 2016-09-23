@@ -9,15 +9,91 @@ import tela_avl_qualitativa
 import avaliacao
 from avaliacao import Avaliacao
 from player import Player
-from PyQt4 import uic, QtCore, QtGui
+from PyQt4 import QtCore, QtGui
 from PyQt4 import *
 from animated_move_button import AnimatedMoveButton
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
 
 class TelaAvaliacao(QtGui.QMainWindow):
     def __init__(self, nivel="niveis\\nivel 1\\conts\\", Parent = None, palette=None):
         super(TelaAvaliacao, self).__init__()
 
-        uic.loadUi(os.sep.join(["templates","tela_avaliacao.ui"]), self)
+        ################################################################
+
+        self.setObjectName(_fromUtf8("self"))
+        self.resize(1072, 693)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("icons\\logo lepe.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.setWindowIcon(icon)
+
+        self.centralwidget = QtGui.QWidget(self)
+        self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
+
+        self.proxPergButton = QtGui.QPushButton(self.centralwidget)
+        self.proxPergButton.setGeometry(QtCore.QRect(930, 590, 101, 81))
+        self.proxPergButton.setText(_fromUtf8(""))
+        self.proxPergButton.setObjectName(_fromUtf8("proxPergButton"))
+        self.proxPergButton.setToolTip("Próxima Pergunta")
+        
+        self.perguntaWidget = QtGui.QWidget(self.centralwidget)
+        self.perguntaWidget.setGeometry(QtCore.QRect(250, 10, 554, 376))
+        self.perguntaWidget.setObjectName(_fromUtf8("perguntaWidget"))
+        self.perguntaWidget.setStyleSheet(_fromUtf8("background-color: rgb(63, 63, 63);"))
+
+        self.radioButton_1 = QtGui.QRadioButton(self.centralwidget)
+        self.radioButton_1.setGeometry(QtCore.QRect(50, 490, 31, 17))
+        self.radioButton_1.setText(_fromUtf8(""))
+        self.radioButton_1.setObjectName(_fromUtf8("radioButton_1"))
+
+        self.radioButton_2 = QtGui.QRadioButton(self.centralwidget)
+        self.radioButton_2.setGeometry(QtCore.QRect(300, 490, 31, 17))
+        self.radioButton_2.setText(_fromUtf8(""))
+        self.radioButton_2.setObjectName(_fromUtf8("radioButton_2"))
+
+        self.radioButton_3 = QtGui.QRadioButton(self.centralwidget)
+        self.radioButton_3.setGeometry(QtCore.QRect(550, 490, 31, 17))
+        self.radioButton_3.setText(_fromUtf8(""))
+        self.radioButton_3.setObjectName(_fromUtf8("radioButton_3"))
+
+        self.radioButton_4 = QtGui.QRadioButton(self.centralwidget)
+        self.radioButton_4.setGeometry(QtCore.QRect(800, 490, 31, 17))
+        self.radioButton_4.setText(_fromUtf8(""))
+        self.radioButton_4.setObjectName(_fromUtf8("radioButton_4"))
+
+        self.alter1Widget = QtGui.QWidget(self.centralwidget)
+        self.alter1Widget.setGeometry(QtCore.QRect(70, 410, 191, 171))
+        self.alter1Widget.setObjectName(_fromUtf8("alter1Widget"))
+
+        self.alter2Widget = QtGui.QWidget(self.centralwidget)
+        self.alter2Widget.setGeometry(QtCore.QRect(320, 410, 191, 171))
+        self.alter2Widget.setObjectName(_fromUtf8("alter2Widget"))
+
+        self.alter3Widget = QtGui.QWidget(self.centralwidget)
+        self.alter3Widget.setGeometry(QtCore.QRect(570, 410, 191, 171))
+        self.alter3Widget.setObjectName(_fromUtf8("alter3Widget"))
+
+        self.alter4Widget = QtGui.QWidget(self.centralwidget)
+        self.alter4Widget.setGeometry(QtCore.QRect(820, 410, 191, 171))
+        self.alter4Widget.setObjectName(_fromUtf8("alter4Widget"))
+
+        self.setCentralWidget(self.centralwidget)
+        self.statusbar = QtGui.QStatusBar(self)
+        self.statusbar.setObjectName(_fromUtf8("statusbar"))
+        self.setStatusBar(self.statusbar)
+
+        
+        self.setWindowTitle("Tela Avaliação Quatitativa LEPÊ")
+
+
+        
+        ################################################################
+
+        #uic.loadUi(os.sep.join(["templates","tela_avaliacao.ui"]), self)
         self.__player1 = Player(self.perguntaWidget)
 
         self.setMouseTracking(True)

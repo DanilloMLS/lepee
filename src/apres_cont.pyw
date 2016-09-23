@@ -1,11 +1,16 @@
 # -*- coding: cp1252 -*-
 
 import os
-from PyQt4 import uic, QtCore, QtGui
+from PyQt4 import QtCore, QtGui
 from animated import animated_widget
 from player import Player
 from conteudo import Conteudo
 
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
 
 class ApresCont(QtGui.QWidget):
     '''
@@ -15,7 +20,33 @@ class ApresCont(QtGui.QWidget):
     '''
     def __init__(self, toplevel=None, conteudo=None):
         super(ApresCont, self).__init__()
-        uic.loadUi("templates" + os.sep + "apres_cont.ui", self) #template da tela de apresentação
+        #######################################################################
+
+        self.setObjectName(_fromUtf8("self"))
+        self.resize(741, 635)
+        self.setWindowTitle(_fromUtf8(""))
+        self.setAutoFillBackground(True)
+        self.contWidget = QtGui.QWidget(self)
+        self.contWidget.setGeometry(QtCore.QRect(0, 0, 751, 681))
+        self.contWidget.setObjectName(_fromUtf8("contWidget"))
+        self.imgScrollArea = QtGui.QScrollArea(self.contWidget)
+        self.imgScrollArea.setGeometry(QtCore.QRect(80, 50, 201, 121))
+        self.imgScrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.imgScrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.imgScrollArea.setWidgetResizable(True)
+        self.imgScrollArea.setObjectName(_fromUtf8("imgScrollArea"))
+        self.imgWidget = QtGui.QWidget()
+        self.imgWidget.setGeometry(QtCore.QRect(0, 0, 199, 119))
+        self.imgWidget.setObjectName(_fromUtf8("imgWidget"))
+        self.imgScrollArea.setWidget(self.imgWidget)
+        self.videoWidget = QtGui.QWidget(self.contWidget)
+        self.videoWidget.setGeometry(QtCore.QRect(80, 230, 551, 371))
+        self.videoWidget.setStyleSheet(_fromUtf8("background-color: rgb(0, 0, 0);"))
+        self.videoWidget.setObjectName(_fromUtf8("videoWidget"))
+
+        
+        #######################################################################
+        #uic.loadUi("templates" + os.sep + "apres_cont.ui", self) #template da tela de apresentação
         self.setParent(toplevel)
         self.__player = Player(self.videoWidget) #videoWidget é o contenier do template destinado a armazenar o player
         self.__cont_exibido = conteudo
